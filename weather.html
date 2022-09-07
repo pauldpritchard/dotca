@@ -1,0 +1,1770 @@
+
+
+
+<!doctype html>
+
+<html lang="en" style="background-color: #242328;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <title>Weather App</title>
+  <link rel="apple-touch-icon" href="//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/app-icon.png?13207">
+  <link rel="icon" sizes="192x192" href="//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/app-icon.png?13207">
+
+<style>
+
+@font-face {
+  font-family: 'Conduit';
+  src: url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/fdaf48d4-c023-4a03-b948-53535ee4d571.woff?13207) format('woff');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Conduit';
+  src: url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/e924c59f-bc21-471f-ad1b-cefd0c1a6315.woff?13207) format('woff');
+  font-weight: normal;
+}
+
+html {
+  background: #242328;
+}
+body {
+  background: #242328;
+  font-family: 'Conduit';
+  letter-spacing: 0.05em;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+sup {
+  font-size: 0.6em;
+}
+
+.now {
+  height: 29%;
+  width: 100vw;
+  position: absolute;
+}
+.now .text {
+  padding: 14% 9% 12% 15%;
+  float: left;
+  width: 30vw;
+}
+.now .label {
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  color: #ffcc00;
+  text-transform: uppercase;
+}
+.now .temperature {
+  font-size: 78px;
+  margin-top: -10px;
+  font-weight: bold;
+}
+.now .icon {
+  float: left;
+  width: 25vw;
+  height: 25vw;
+  margin-top: 12%;
+}
+
+.hourly {
+  height: 71%;
+  width: 100vw;
+  top: 29%;
+  position: absolute;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.hourly .hour {
+  height: 36px;
+  line-height: 36px;
+  overflow: hidden;
+}
+.hourly .hour.divider:after {
+  position: absolute;
+  content: '';
+  border-bottom: 1px dashed rgba(255,255,255,0.4);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 7;
+}
+.hourly .hour .time {
+  position: absolute;
+  height: 36px;
+  font-size: 21px;
+  margin: -6px 0 0 7px;
+  z-index: 10;
+}
+.hourly .hour .bar {
+  display: inline-block;
+  height: 36px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 5;
+  box-shadow: inset 0 10px 9px -5px rgba(0,0,0,0.04)
+}
+
+.hourly .hour .temperature {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: bold;
+  height: 36px;
+  margin-left: 8px;
+  font-size: 26px;
+}
+
+/* BAR STYLES */
+
+/* SUNNY */
+
+.style00 .bar {   /* Sunny (sun) */
+  background: linear-gradient(to right, #f4b636, #f4b636);
+}
+
+.style01 .bar {   /* Mainly sunny (sun/tinycloud) */
+  background: linear-gradient(to right, rgba(192,196,198, 0) 80%, rgba(192,196,198, 1) 100%),
+              linear-gradient(to right, #f4b636 0%, #f4b636 80%);
+}
+.style02 .bar {   /* A mix of sun and cloud (sun/cloud) */
+  background: linear-gradient(to right, rgba(192,196,198, 0) 50%, rgba(192,196,198, 1) 80%),
+              linear-gradient(to right, #f4b636 0%, #f4b636 50%);
+}
+
+.style03 .bar {   /* Mostly cloudy (cloud/sun) */
+  background: linear-gradient(to right, rgba(192,196,198, 0) 15%, rgba(192,196,198, 1) 35%),
+              linear-gradient(to right, #f4b636 0%, #f4b636 20%);
+}
+
+
+.style06 .bar {   /* Chance of showers (sun/cloud/raincloud) */
+  background: linear-gradient(to right, rgba(244,182,54, 1) 0%, rgba(244,182,54, 1) 20%, rgba(192,196,198, 1) 50%, rgba(192,196,198, 1) 80%, rgba(192,196,198, 0.1) 100%),
+              url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/rain.gif?13207);
+}
+
+.style08 .bar {   /* Sunny with a chance of flurries */
+  background: linear-gradient(to right, rgba(244,182,54, 1) 0%, rgba(244,182,54, 1) 20%, rgba(192,196,198, 1) 50%, rgba(192,196,198, 1) 80%, rgba(192,196,198, 0.1) 100%),
+              url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/snow-slow.gif?13207);
+  background-size: contain;
+}
+
+/* Chance of thundershowers (sun/cloud/lightning raincloud) */
+.style09 .bar:before {
+  background: linear-gradient(to right, rgba(244,182,54, 1) 0%, rgba(244,182,54, 1) 20%, rgba(192,196,198, 1) 50%, rgba(192,196,198, 1) 80%, rgba(192,196,198, 0.1) 100%);
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 5;
+  box-shadow: inset 0 10px 9px -5px rgba(0,0,0,0.04);
+}
+.style09.lop-high .bar:before {
+  background: linear-gradient(to right, rgba(244,182,54, 1) 0%, rgba(192,196,198, 1) 20%, rgba(192,196,198, 0.1) 40%);
+}
+.style09 .bar:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #A8CFD7;
+  z-index: 1;
+  animation: thunderstorm 3s infinite;
+}
+.style09 .bar {
+  background: url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/rain.gif?13207);
+}
+
+
+/* CLOUDY */
+.style10 .bar {   /* (?) Cloudy */
+  background: linear-gradient(to right, #c0c4c6, #a0a4a5);
+}
+
+.style12 .bar {   /* A few showers */
+  background: linear-gradient(to right, rgba(160,164,165, 1) 0%, rgba(160,164,165, 0.1) 50%),
+              url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/rain.gif?13207); /* rain-light */
+}
+.style13 .bar {   /* (?) Cloudy with rain */
+  background: linear-gradient(to right, rgba(160,164,165, 1) 0%, rgba(160,164,165, 0.1) 50%),
+              url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/rain.gif?13207); /* rain-heavy */
+}
+
+.style16 .bar {   /* Chance of flurries */
+  background: linear-gradient(to right, rgba(160,164,165, 1) 0%, rgba(160,164,165, 1) 20%, rgba(160,164,165, 0.1) 70%),
+              url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/snow-slow.gif?13207); /* snow-light */
+  background-size: contain;
+}
+.style17 .bar {   /* ? */
+  background: linear-gradient(to right, rgba(160,164,165, 1) 0%, rgba(160,164,165, 0.1) 50%),
+              url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/snow.gif?13207); /* snow-medium */
+  background-size: contain;
+}
+.style18 .bar {   /* ? */
+  background: linear-gradient(to right, rgba(160,164,165, 1) 0%, rgba(160,164,165, 0.1) 30%),
+              url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/snow.gif?13207); /* snow-light */
+  background-size: contain;
+}
+
+
+.style19 .bar:before { /* (?) Cloudy with thunderstorms */
+  background: linear-gradient(to right, rgba(160,164,165, 1) 0%, rgba(160,164,165, 0.1) 50%);
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 5;
+  box-shadow: inset 0 10px 9px -5px rgba(0,0,0,0.04);
+}
+.style19 .bar:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #A8CFD7;
+  z-index: 1;
+  animation: thunderstorm 3s infinite;
+}
+.style19 .bar {
+  background: url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/rain.gif?13207);
+}
+
+
+
+
+/* NIGHT */
+
+.style30 .bar {   /* Night - Clear (?) */
+  background: linear-gradient(to right, rgba(74,82,88, 1), rgba(67,74,80, 1));
+}
+.style31 .bar {   /* Night - A few clouds */
+  background: linear-gradient(to right, rgba(74,82,88, 1), rgba(67,74,80, 1));
+}
+.style32 .bar {   /* Night - Partly cloudy */
+  background: linear-gradient(to right, rgba(74,82,88, 1), rgba(67,74,80, 1));
+}
+.style33 .bar {   /* Night - Cloudy */
+  background: linear-gradient(to right, rgba(74,82,88, 1), rgba(67,74,80, 1));
+}
+.style36 .bar {   /* Night - Chance of showers */
+  background: linear-gradient(to right, rgba(74,82,88, 1) 0%, rgba(67,74,80, 1) 80%, rgba(0,0,0, 0.2) 100%),
+              url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/rain.gif?13207);
+}
+.style38 .bar {   /* Night - (Chance of?) snow */
+  background: linear-gradient(to right, rgba(74,82,88, 1) 0%, rgba(67,74,80, 1) 80%, rgba(67,74,80, 0.2) 100%),
+              url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/snow-slow-night.gif?13207);
+  background-size: contain;
+}
+.style39 .bar:before { /* (?) Cloudy with thunderstorms */
+  background: linear-gradient(to right, rgba(74,82,88, 1) 0%, rgba(67,74,80, 1) 80%, rgba(0,0,0, 0.2) 100%);
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 5;
+  box-shadow: inset 0 10px 9px -5px rgba(0,0,0,0.04);
+}
+.style39 .bar:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #A8CFD7;
+  z-index: 1;
+  animation: thunderstorm 3s infinite;
+}
+.style39 .bar {
+  background: url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/rain.gif?13207);
+}
+
+
+@keyframes thunderstorm {
+  0% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  31% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  74% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 0;
+  }
+  79% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ANIMATIONS */
+
+/* Now */
+.now .label {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.slick-active .now.loaded .label {
+  opacity: 1;
+}
+.now .icon {
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0, 0, 0.23, 1);
+}
+.slick-active .now.loaded .icon {
+  transform: scale(1);
+}
+
+/* Bar */
+.hourly .hour {
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.11, 0.82, 0.58, 1);
+  transition-delay: 0.5s;
+}
+.slick-active .hourly .hour.loaded {
+  transform: translateX(0%);
+  transition-delay: 0s;
+}
+
+.hourly .hour.divider:after {
+  opacity: 0;
+  transition: opacity 0.8s ease 0.2s;
+}
+.slick-active .hourly .hour.loaded.divider:after {
+  opacity: 1;
+}
+
+
+/* Timestamp */
+.hourly .hour .time {
+  transform: translateX(-70px);
+  transition: transform 0.6s cubic-bezier(0.11, 0.82, 0.58, 1) 0s;
+}
+.slick-active .hourly .hour.loaded .time {
+  transform: translateX(0);
+}
+
+/* Temperature */
+/*.hourly .hour .temperature {
+  transform: translateX(-70px);
+  transition: transform 0.3s cubic-bezier(0.11, 0.82, 0.58, 1) 0.2s;
+}
+.slick-active .hourly .hour.loaded .temperature {
+  transform: translateX(0);
+}
+*/
+/* Slide 2 ============================================================= */
+
+.day {
+  height: 16.6vh;
+  position: relative;
+}
+
+.day.divider:after {
+  position: absolute;
+  content: '';
+  border-bottom: 1px dashed rgba(255,255,255,0.4);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 7;
+}
+
+.day > div {
+  display: inline-block;
+}
+
+.day .label {
+  width: 7%;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  transform: rotate(-90deg);
+  margin-top: 40px;
+}
+
+.day .icon {
+  width: 15vw;
+  height: 15vw;
+  margin: 20px 15px;
+  vertical-align: middle;
+}
+.day .icon img {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.day .highlow {
+  width: 21%;
+  margin: 17px 0;
+  vertical-align: middle;
+}
+.day .highlow .high {
+  font-size: 50px;
+  font-weight: bold;
+}
+.day .highlow .low {
+  font-size: 20px;
+  margin-top: -8px;
+  margin-left: 3px;
+}
+
+.day .details {
+  width: 49%;
+  font-size: 20px;
+  line-height: 24px;
+  vertical-align: middle;
+  margin-top: 5px;
+}
+
+/* ANIMATIONS */
+
+.day.divider:after {
+  opacity: 0;
+  transition: opacity 0.8s ease 0.2s;
+}
+.slick-active .day.loaded.divider:after {
+  opacity: 1;
+}
+
+
+/* Day of week */
+.day .label {
+  transform: translateX(-40px) rotate(-90deg);
+  transition: transform 0.6s cubic-bezier(0.11, 0.82, 0.58, 1) 0.1s;
+}
+.slick-active .day.loaded .label {
+  transform: translateX(0) rotate(-90deg);
+}
+
+/* Icon */
+.day .icon {
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0, 0, 0.23, 1);
+}
+.slick-active .day.loaded .icon {
+  transform: scale(1);
+}
+
+/* Details */
+.day .details > div {
+  overflow: hidden;
+  padding-right: 20px;
+}
+.day .details > div > div {
+  transform: translateX(115%);
+  transition: opacity 1s ease, transform 0.5s cubic-bezier(0, 0, 0.23, 1);
+  opacity: 1;
+}
+.slick-active .day.loaded .details > div > div {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* icons.html ============================================================= */
+
+/* Missing: slow rain, snow, sleet/hail */
+
+.icon {
+  position: relative;
+}
+
+.sun, .cloud, .rain, .snow, .moon {
+  display: none;
+}
+
+/* Sun */
+.sun {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  animation: rotateSun 60s linear infinite;
+}
+.sun:before {
+  content: "";
+  position: absolute;
+  height: 80%;
+  width: 80%;
+  top: 10%;
+  right: 10%;
+  border-radius: 50%;
+  z-index: 2;
+  background-color: #f1c40f;
+  /*background-image: radial-gradient(#f1c40f, #f39c12);*/
+  background-image: radial-gradient(#ffdc59, #f4b536);
+  box-shadow: 0 0 25px #917508;
+}
+.sun:after {
+  content: "";
+  position: absolute;
+  height: 120%;
+  width: 120%;
+  top: -10%;
+  left: -10%;
+  border-radius: 50%;
+  z-index: 1;
+  /*background-color: #f39c12;*/
+  background-color: #ffd173;
+  will-change: opacity, transform;
+  animation: fadeIn 4s linear infinite reverse, scaleDown 4s linear infinite reverse;
+}
+.ray {
+  position: absolute;
+  width:  100%;
+  height: 100%;
+  opacity: 0.9;
+}
+@keyframes rotateSun {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.ray:before {
+  content: "";
+  position: absolute;
+  background-image: radial-gradient(#ffdc59, #f4b536);
+  z-index: 2;
+  width: 12%;
+  height: 15%;
+  left: 44%;
+  top: -12%;
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.ray:nth-child(2) {
+  transform: rotate(45deg);
+}
+.ray:nth-child(3) {
+  transform: rotate(90deg);
+}
+.ray:nth-child(4) {
+  transform: rotate(135deg);
+}
+.ray:nth-child(5) {
+  transform: rotate(180deg);
+}
+.ray:nth-child(6) {
+  transform: rotate(225deg);
+}
+.ray:nth-child(7) {
+  transform: rotate(270deg);
+}
+.ray:nth-child(8) {
+  transform: rotate(315deg);
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 0.3; }
+}
+@keyframes scaleDown {
+  0% { transform: scale(1); }
+  100% { transform: scale(.6); }
+}
+
+/* Cloud */
+.cloud {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: translateUp 2s linear infinite alternate;
+}
+.cloud:before {
+  content: "";
+  position: absolute;
+  height: 40%;
+  width: 40%;
+  top: 30%;
+  right: 0%;
+  border-radius: 50%;
+  border-bottom-left-radius: 0;
+  z-index: 3;
+  background-color: #ecf0f1;
+  /*background-image: radial-gradient(#ecf0f1, #bdc3c7);*/
+  background-image: linear-gradient(#dce1e2, #bdc3c7);
+}
+.cloud:after {
+  content: "";
+  position: absolute;
+  height: 60%;
+  width: 70%;
+  top: 10%;
+  right: 30%;
+  border-radius: 50%;
+  border-bottom-right-radius: 0;
+  z-index: 2;
+  background-color: #ecf0f1;
+  /*background-image: radial-gradient(#ecf0f1, #bdc3c7);*/
+  background-image: linear-gradient(#ecf0f1, #bdc3c7);
+  box-shadow: 8px 4px 25px rgba(0,0,0,.2);
+}
+
+/* Sideclouds */
+.sidecloud-left {
+  left: 0%;
+  top: 26%;
+  width: 66%;
+  height: 66%;
+  z-index: 3;
+  animation-name: translateLilUp;
+  filter: brightness(1.15);
+}
+.sidecloud-right {
+  left: 38%;
+  top: 40%;
+  width: 62%;
+  height: 62%;
+  transform: rotateY(180deg);
+  z-index: 4;
+  animation-name: translateUpFlipped;
+  filter: brightness(1.15);
+}
+
+/* Largecloud */
+.largecloud {
+  z-index: 4;
+  animation-name: translateLilSide;
+  width: 85%;
+  height: 85%;
+  top: 10%;
+  filter: brightness(0.9);
+}
+.backcloud {
+  width: 53%;
+  height: 53%;
+  left: 43%;
+  z-index: 3;
+  animation-name: translateUpFlipped;
+  filter: brightness(0.9);
+}
+.backcloud:before {
+  background: linear-gradient(#b0b5b7, #9ca1a5);
+}
+.backcloud:after {
+  background: linear-gradient(#b9bebf, #9b9fa2);
+}
+
+@keyframes translateUp {
+  0% { transform: translatey(7.5%); }
+  100% { transform: translatey(-7.5%); }
+}
+@keyframes translateUpFlipped {
+  0% { transform: translatey(7.5%) rotateY(180deg); }
+  100% { transform: translatey(-7.5%) rotateY(180deg); }
+}
+@keyframes translateLilUp {
+  0% { transform: translatey(-1.5%); }
+  100% { transform: translatey(1.5%); }
+}
+@keyframes translateLilUpFlipped {
+  0% { transform: translatey(-1.5%) rotateY(180deg); }
+  100% { transform: translatey(1.5%) rotateY(180deg); }
+}
+@keyframes translateLilSide {
+  0% { transform: translatex(2.5%); }
+  100% { transform: translatex(-2.5%); }
+}
+
+/* Rain */
+.rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.rain:after {
+  content: "";
+  position: absolute;
+  background: url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/rain.gif?13207);
+  z-index: 1;
+}
+.rain:before {
+  display: none;
+  content: "";
+  position: absolute;
+  background: #A8CFD7;
+  z-index: 2;
+  animation: thunderstorm 3s infinite;
+}
+.rain-sidecloud-right {
+  animation: translateUp 2s linear infinite alternate;
+}
+.rain-sidecloud-right:after, .rain-sidecloud-right:before {
+  height: 40%;
+  width: 61%;
+  top: 60%;
+  left: 38%;
+  -webkit-clip-path: polygon(35% 0%, 100% 0%, 65% 100%, 0% 100%);
+}
+.rain-largecloud:after, .rain-largecloud:before {
+  height: 30%;
+  width: 70%;
+  top: 60%;
+  left: 6%;
+  -webkit-clip-path: polygon(21% 0%, 100% 0%, 79% 100%, 0% 100%);
+}
+
+/* Snow */
+.snow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.snowflake-row {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -2%;
+  left: 0%;
+}
+.days .snowflake-row {
+  height: 50%;
+}
+.snowflake {
+  top: 63%;
+  left: 20%;
+  width: 6px;
+  height: 6px;
+  background: url(//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/snowflake.png?13207);
+  background-size: cover;
+  /*background: linear-gradient(#fff, #ddd);*/
+  position: absolute;
+  animation: snowflake 3s linear infinite;
+}
+.snowflake:nth-child(2) {
+  left: 20%;
+}
+.snowflake:nth-child(3) {
+  left: 38%;
+  top: 66%;
+}
+.snowflake:nth-child(4) {
+  left: 38%;
+  top: 66%;
+}
+.snowflake:nth-child(5) {
+  left: 56%;
+  /*top: 61%;*/
+}
+.snowflake:nth-child(6) {
+  left: 56%;
+  /*top: 61%;*/
+}
+.snowflake:nth-child(2n+1) { /* second batch, used for flow */
+  animation-delay: 1.5s;
+}
+.snowflake-row {
+  animation: snowsway 3s ease-out infinite 1.5s;
+}
+.snowflake-row:nth-child(2) {
+  left: 9%;
+}
+.snowflake-row:nth-child(2) .snowflake {
+  animation: snowflake 3s linear infinite 0.75s;
+}
+.snowflake-row:nth-child(2) .snowflake:nth-child(2n+1) {
+  animation: snowflake 3s linear infinite 2.25s;
+}
+@keyframes snowflake {
+  0% {
+    transform: scale(1);
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-5px) translateY(300%);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-10px) translateY(600%)  scale(0.7);
+    opacity: 0;
+  }
+}
+@keyframes snowsway {
+  0% {
+  }
+  50% {
+    transform: translateX(4%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Moon */
+.moon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.moon:before {
+  border-radius: 50%;
+  box-shadow: #fffad4 -24px 0;
+  content: "";
+  height: 75%;
+  width: 75%;
+  position: absolute;
+  top: 10%;
+  left: 43%;
+  transform: rotate(-5deg);
+}
+
+
+/* Styles ================================================================ */
+
+/* Sun styles */
+
+.style00 .sun {
+  display: block;
+}
+
+.style01 .sun {
+  display: block;
+}
+.style01 .sidecloud-right {
+  display: block;
+  width: 40%;
+  height: 40%;
+  top: 53%;
+  left: 53%;
+}
+
+.style02 .sun {
+  display: block;
+}
+.style02 .sidecloud-right {
+  display: block;
+  left: 38%;
+  top: 40%;
+  width: 62%;
+  height: 62%;
+}
+
+.style03 .sun {
+  display: block;
+  width: 60%;
+  height: 60%;
+  left: 20%;
+  top: 9%;
+}
+.style03 .cloud {
+
+}
+.style03 .sidecloud-left {
+  display: block;
+}
+.style03 .sidecloud-right {
+  display: block;
+}
+
+.style05 .sun {
+  display: block;
+}
+.style05 .sidecloud-right {
+  display: block;
+  left: 38%;
+  top: 40%;
+  width: 62%;
+  height: 62%;
+}
+
+
+.style06 .sun {
+  display: block;
+  width: 60%;
+  height: 60%;
+  left: 20%;
+  top: 9%;
+}
+.style06 .sidecloud-left {
+  display: block;
+  z-index: 5;
+}
+.style06 .sidecloud-right:before {
+  background: linear-gradient(#b0b5b7, #9ca1a5);
+}
+.style06 .sidecloud-right:after {
+  background: linear-gradient(#b9bebf, #9b9fa2);
+}
+.style06 .sidecloud-right {
+  display: block;
+}
+.style06 .rain-sidecloud-right {
+  display: block;
+}
+
+.style07 .sun {
+  display: block;
+  width: 74%;
+  height: 74%;
+  left: 13%;
+}
+.style07 .sidecloud-left {
+  display: block;
+  z-index: 6;
+}
+.style07 .sidecloud-right:before {
+  background: linear-gradient(#b0b5b7, #9ca1a5);
+}
+.style07 .sidecloud-right:after {
+  background: linear-gradient(#b9bebf, #9b9fa2);
+}
+.style07 .sidecloud-right {
+  display: block;
+}
+.style07 .rain-sidecloud-right {
+  display: block;
+}
+.style07 .snow-sidecloud-left {
+  display: block;
+  width: 70%;
+  z-index: 5;
+}
+.style07 .snow-sidecloud-left .snowflake-row:nth-child(1) .snowflake:nth-child(2),
+.style07 .snow-sidecloud-left .snowflake-row:nth-child(1) .snowflake:nth-child(5),
+.style07 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(1),
+.style07 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(2),
+.style07 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(3),
+.style07 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(4),
+.style07 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(5) {
+  display: none;
+}
+
+.style08 .sun {
+  display: block;
+  width: 74%;
+  height: 74%;
+  left: 13%;
+}
+.style08 .sidecloud-left {
+  display: block;
+  z-index: 6;
+}
+.style08 .sidecloud-right:before {
+  background: linear-gradient(#b0b5b7, #9ca1a5);
+}
+.style08 .sidecloud-right:after {
+  background: linear-gradient(#b9bebf, #9b9fa2);
+}
+.style08 .sidecloud-right {
+  display: block;
+}
+.style08 .snow-sidecloud-left {
+  display: block;
+  width: 70%;
+  z-index: 5;
+}
+.style08 .snow-sidecloud-left .snowflake-row:nth-child(1) .snowflake:nth-child(2),
+.style08 .snow-sidecloud-left .snowflake-row:nth-child(1) .snowflake:nth-child(5),
+.style08 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(1),
+.style08 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(2),
+.style08 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(3),
+.style08 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(4),
+.style08 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(5) {
+  display: none;
+}
+
+.style09 .sun {
+  display: block;
+  width: 60%;
+  height: 60%;
+  left: 20%;
+  top: 9%;
+}
+.style09 .sidecloud-left {
+  display: block;
+  z-index: 5;
+}
+.style09 .sidecloud-right:before {
+  background: linear-gradient(#b0b5b7, #9ca1a5);
+}
+.style09 .sidecloud-right:after {
+  background: linear-gradient(#b9bebf, #9b9fa2);
+}
+.style09 .sidecloud-right {
+  display: block;
+}
+.style09 .rain-sidecloud-right, .style09 .rain-sidecloud-right:before {
+  display: block;
+}
+
+/* Cloud styles */
+
+.style10 .largecloud {
+  display: block;
+  top: 13%;
+  width: 100%;
+  height: 100%;
+}
+.style10 .backcloud {
+  display: block;
+}
+
+.style11 .largecloud {
+  display: block;
+}
+.style11 .backcloud {
+  display: block;
+}
+
+.style12 .largecloud {
+  display: block;
+}
+.style12 .backcloud {
+  display: block;
+}
+.style12 .rain-largecloud {
+  display: block;
+}
+
+.style13 .largecloud {
+  display: block;
+}
+.style13 .backcloud {
+  display: block;
+}
+.style13 .rain-largecloud {
+  display: block;
+}
+
+.style14 .largecloud {
+  display: block;
+}
+.style14 .backcloud {
+  display: block;
+}
+
+.style15 .largecloud {
+  display: block;
+}
+.style15 .backcloud {
+  display: block;
+}
+.style15 .rain-largecloud {
+  display: block;
+}
+.style15 .rain-largecloud:after {
+  width: 47%;
+  left: 33%;
+  clip-path: polygon(34% 0%, 100% 0%, 66% 100%, 0% 100%);
+}
+.style15 .snow-sidecloud-left {
+  display: block;
+  width: 70%;
+  z-index: 2;
+}
+.style15 .snow-sidecloud-left .snowflake-row:nth-child(1) .snowflake:nth-child(2),
+.style15 .snow-sidecloud-left .snowflake-row:nth-child(1) .snowflake:nth-child(5),
+.style15 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(1),
+.style15 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(2),
+.style15 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(3),
+.style15 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(4),
+.style15 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(5) {
+  display: none;
+}
+
+.style16 .largecloud {
+  display: block;
+}
+.style16 .backcloud {
+  display: block;
+}
+.style16 .snow-largecloud {
+  display: block;
+}
+.style16 .snow-largecloud .snowflake-row:nth-child(1) .snowflake:nth-child(2),
+.style16 .snow-largecloud .snowflake-row:nth-child(1) .snowflake:nth-child(5),
+.style16 .snow-largecloud .snowflake-row:nth-child(2) .snowflake:nth-child(1),
+.style16 .snow-largecloud .snowflake-row:nth-child(2) .snowflake:nth-child(2),
+.style16 .snow-largecloud .snowflake-row:nth-child(2) .snowflake:nth-child(3),
+.style16 .snow-largecloud .snowflake-row:nth-child(2) .snowflake:nth-child(4),
+.style16 .snow-largecloud .snowflake-row:nth-child(2) .snowflake:nth-child(5) {
+  display: none;
+}
+
+.style17 .largecloud {
+  display: block;
+}
+.style17 .backcloud {
+  display: block;
+}
+.style17 .snow-largecloud {
+  display: block;
+}
+
+.style18 .largecloud {
+  display: block;
+}
+.style18 .backcloud {
+  display: block;
+}
+.style18 .snow-largecloud {
+  display: block;
+}
+
+.style19 .largecloud {
+  display: block;
+}
+.style19 .backcloud {
+  display: block;
+}
+.style19 .rain-largecloud, .style19 .rain-largecloud:before {
+  display: block;
+}
+
+/* Night styles */
+
+.style30 .moon {
+  display: block;
+}
+
+.style31 .moon {
+  display: block;
+}
+.style31 .sidecloud-right {
+  display: block;
+  filter: brightness(0.8);
+}
+
+.style32 .moon {
+  display: block;
+}
+.style32 .sidecloud-left {
+  display: block;
+  filter: brightness(0.8);
+}
+.style32 .sidecloud-right {
+  display: block;
+  filter: brightness(0.8);
+}
+
+.style33 .moon {
+  display: block;
+}
+.style33 .sidecloud-left {
+  display: block;
+  filter: brightness(0.8);
+}
+.style33 .sidecloud-right {
+  display: block;
+  filter: brightness(0.8);
+}
+
+
+
+.style36 .moon {
+  display: block;
+}
+.style36 .sidecloud-left {
+  display: block;
+  filter: brightness(0.8);
+  z-index: 5;
+}
+.style36 .sidecloud-right {
+  display: block;
+  filter: brightness(0.7);
+}
+.style36 .sidecloud-right {
+  display: block;
+}
+.style36 .rain-sidecloud-right {
+  display: block;
+}
+
+
+.style37 .moon {
+  display: block;
+}
+.style37 .sidecloud-left {
+  display: block;
+  filter: brightness(0.8);
+  z-index: 6;
+}
+.style37 .sidecloud-right {
+  display: block;
+  filter: brightness(0.7);
+}
+.style37 .rain-sidecloud-right {
+  display: block;
+}
+.style37 .snow-sidecloud-left {
+  display: block;
+  width: 70%;
+  z-index: 5;
+}
+.style37 .snow-sidecloud-left .snowflake-row:nth-child(1) .snowflake:nth-child(2),
+.style37 .snow-sidecloud-left .snowflake-row:nth-child(1) .snowflake:nth-child(5),
+.style37 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(1),
+.style37 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(2),
+.style37 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(3),
+.style37 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(4),
+.style37 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(5) {
+  display: none;
+}
+
+.style38 .moon {
+  display: block;
+}
+.style38 .sidecloud-left {
+  display: block;
+  filter: brightness(0.8);
+  z-index: 6;
+}
+.style38 .sidecloud-right {
+  display: block;
+  filter: brightness(0.7);
+}
+.style38 .snow-sidecloud-left {
+  display: block;
+  width: 70%;
+  z-index: 5;
+}
+.style38 .snow-sidecloud-left .snowflake-row:nth-child(1) .snowflake:nth-child(2),
+.style38 .snow-sidecloud-left .snowflake-row:nth-child(1) .snowflake:nth-child(5),
+.style38 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(1),
+.style38 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(2),
+.style38 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(3),
+.style38 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(4),
+.style38 .snow-sidecloud-left .snowflake-row:nth-child(2) .snowflake:nth-child(5) {
+  display: none;
+}
+
+.style39 .moon {
+  display: block;
+}
+.style39 .sidecloud-left {
+  display: block;
+  filter: brightness(0.8);
+  z-index: 5;
+}
+.style39 .sidecloud-right {
+  display: block;
+  filter: brightness(0.7);
+}
+.style39 .rain-sidecloud-right, .style39 .rain-sidecloud-right:before {
+  display: block;
+}
+
+/* Slick.css ============================================================= */
+
+.slider {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+  	cursor: -webkit-grab;
+
+    height: 100vh;
+    width: 100vw;
+	overflow: hidden;
+    min-height: 1px;
+}
+.slick-slide:focus {
+  outline: none;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+
+
+</style>
+
+<link rel="canonical" href="https://archetypethemes.co/pages/weather-app">
+<meta property="og:image" content="https://cdn.shopify.com/s/files/1/1729/0003/files/Twitter_post_-_10_6b2de6f2-d033-4384-a830-d23728a7344b.png?v=1652215847" />
+<meta property="og:image:secure_url" content="https://cdn.shopify.com/s/files/1/1729/0003/files/Twitter_post_-_10_6b2de6f2-d033-4384-a830-d23728a7344b.png?v=1652215847" />
+<meta property="og:image:width" content="1012" />
+<meta property="og:image:height" content="506" />
+</head>
+
+<body style="background-color: #242328;">
+
+  <div class="slider">
+    <div class="slide1 slide">
+      <div class="now">
+        <div class="text">
+          <div class="label">Now</div>
+          <div class="temperature"></div>
+        </div>
+        <div class="icon">
+          <div class="moon"></div>
+          <div class="sun">
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+          </div>
+          <div class="cloud sidecloud-left"></div>
+          <div class="snow snow-sidecloud-left">
+            <div class="snowflake-row">
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+            </div>
+            <div class="snowflake-row">
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+            </div>
+          </div>
+         <div class="cloud sidecloud-right"></div>
+          <div class="rain rain-sidecloud-right"></div>
+          <div class="cloud largecloud"></div>
+          <div class="rain rain-largecloud"></div>
+          <div class="snow snow-largecloud">
+            <div class="snowflake-row">
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+            </div>
+            <div class="snowflake-row">
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+            </div>
+          </div>
+          <div class="cloud backcloud"></div>
+        </div>
+
+      </div>
+      <div class="hourly scrollable"><!-- bar graph --></div>
+    </div>
+
+    <div class="slide2 slide">
+      <div class="days">
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.shopify.com/s/files/1/1729/0003/t/27/assets/slick.min.js?13207"></script>
+  <script type="text/javascript">
+
+  $(function() {
+
+    var hourly_data;
+    var weekly_data;
+
+
+    $('.slider').slick({
+      infinite: false,
+      dots: false,
+      arrows: false,
+      touchThreshold: 8,
+      edgeFriction: 0
+    });
+
+    var last_slide = 0;
+    $('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+      if (nextSlide != last_slide)
+      {
+        if (nextSlide == 0)
+        {
+          showHourly();
+        }
+        else
+        {
+          showWeek();
+        }
+      }
+    });
+
+    $('.slider').on('afterChange', function(event, slick, currentSlide) {
+      if (currentSlide != last_slide)
+      {
+        if (currentSlide == 0)
+        {
+          hideWeek();
+        }
+        else
+        {
+          hideHourly();
+        }
+      }
+
+      last_slide = currentSlide;
+    });
+
+    function initHourly() {
+      for (i=0; i<24; i++)
+      {
+        $('.hourly').append('<div class="hour"><div class="time"></div><div class="bar"></div><div class="temperature"></div></div>');
+      }
+      if (!hourly_data)
+        getHourlyData();
+      else
+        showHourly();
+    }
+
+    function getHourlyData() {
+//      $.getJSON('https://api.apifier.com/v1/dJdZrL8RdoWxCkfEj/crawlers/Xt2KTxvjaP35HWpRx/lastExec?token=gLD53qGPFBJL8cpZKEAX9QYXp&status=SUCCEEDED', function (data) {
+     $.getJSON('https://api.apify.com/v2/actor-tasks/GJpQWpA5osWMXqmJ7/runs/last/dataset/items?token=gLD53qGPFBJL8cpZKEAX9QYXp&ui=1&status=SUCCEEDED', function (data) {
+       hourly_data = data;
+       if (weekly_data) showHourly(); /* wait for all data before showing */
+     });
+    }
+//     function getHourlyData() {
+// //      $.getJSON('https://api.apifier.com/v1/dJdZrL8RdoWxCkfEj/crawlers/Xt2KTxvjaP35HWpRx/lastExec?token=gLD53qGPFBJL8cpZKEAX9QYXp&status=SUCCEEDED', function (data) {
+//      $.getJSON('https://api.apify.com/v2/actor-tasks/GJpQWpA5osWMXqmJ7/runs/last/dataset/items?token=gLD53qGPFBJL8cpZKEAX9QYXp&ui=1&status=SUCCEEDED', function (data) {
+//        console.log(data);
+//        var latest_results_url = data.resultsUrl;
+//        $.getJSON(latest_results_url, function(data) {
+//         hourly_data = data;
+//         if (weekly_data) showHourly(); /* wait for all data before showing */
+//        });
+//      });
+//     }
+
+    function showHourly() {
+      $('.hourly').scrollTop(0);
+
+      data = hourly_data;
+
+      var items = [];
+
+      // Set up min/maxes
+      var max_temp = -100;
+      var min_temp = 1000;
+      $.each(data[0].pageFunctionResult, function(index, item) {
+
+        if (item.humidex)
+          item.temperature = item.humidex;
+
+        if (parseInt(item.temperature) >= max_temp) {
+          max_temp = parseInt(item.temperature);
+        }
+        if (parseInt(item.temperature) <= min_temp) {
+          min_temp = parseInt(item.temperature);
+        }
+      });
+
+      var last_temp = -100;
+      // Set up display elements
+      $.each(data[0].pageFunctionResult, function(index, item) {
+
+        var element = $('.hour:eq(' + index + ')');
+
+        var time_ampm = '<sup>am</sup>';
+        var time_hour = parseInt(item.hour.replace(':00',''));
+        if (time_hour == 8 || time_hour == 16)
+          element.addClass('divider');
+        if (time_hour >= 12) {
+          time_hour -= 12;
+          time_ampm = '<sup>pm</sup>';
+        }
+        if (time_hour == 0)
+          time_hour = 12;
+
+        if (item.icon == 28) item.icon = 12; // Drizzle == rain
+        if (item.icon == 24) item.icon = 10; // Mist == clouds
+
+        element.addClass('style' + item.icon);
+        element.addClass('lop-' + item.lop.toLowerCase());
+        element.find('.time').html(time_hour + time_ampm);
+        if (item.temperature != last_temp)
+          element.find('.temperature').data('animate-to',item.temperature);
+        last_temp = item.temperature;
+
+        var o = element;
+        var bar_size = ((item.temperature-min_temp) / (max_temp-min_temp) * 70 + 15);
+        window.setTimeout(function () {
+          o.find('.bar').css('width', bar_size + '%');
+          o.addClass('loaded');
+          animateNumbers(o.find('.temperature'), true);
+        }, index * waterfall_delay);
+      });
+
+      if (weekly_data)
+      {
+        // Current conditions come from weekly data
+        item = weekly_data[0].pageFunctionResult[0];
+        console.log(item);
+        $('.now').addClass('loaded');
+        if (item.icon == 28) item.icon = 12; // Drizzle == rain
+        if (item.icon == 24) item.icon = 10; // Mist == clouds
+        $('.now .icon').addClass('style' + item.icon);
+        $('.now .temperature').data('animate-to',item.high);
+        if (item.details != '') /* Humidex */
+          $('.now .temperature').data('animate-to',item.details);
+        animateNumbers($('.now .temperature'), true);
+      }
+    }
+    function hideHourly() {
+      $('.slide1 .bar').css('width','0%');
+      $('.slide1 .temperature').each (function() {
+        $(this).html('').data('animate-interval',100);
+      });
+      $('.slide1 .loaded').removeClass('loaded');
+    }
+
+    function initWeek() {
+      for (i=0; i<6; i++)
+      {
+        $('.days').append('<div class="day"><div class="label"></div><div class="icon"><div class="moon"></div><div class="sun"><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div></div><div class="cloud sidecloud-left"></div><div class="snow snow-sidecloud-left"><div class="snowflake-row"><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div></div><div class="snowflake-row"><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div></div></div><div class="cloud sidecloud-right"></div><div class="rain rain-sidecloud-right"></div><div class="cloud largecloud"></div><div class="rain rain-largecloud"></div><div class="snow snow-largecloud"><div class="snowflake-row"><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div></div><div class="snowflake-row"><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div></div></div><div class="cloud backcloud"></div></div><div class="highlow"><div class="high" data-animate-to="24"></div><div class="low" data-animate-to="17"></div></div><div class="details"><div><div>Mostly sunny.</div></div></div></div>')
+      }
+      if (!weekly_data)
+        getWeekData();
+    }
+
+    function getWeekData() {
+      //$.getJSON('https://api.apifier.com/v1/dJdZrL8RdoWxCkfEj/crawlers/4r84w6cK6SmxYAZeE/lastExec?token=gLD53qGPFBJL8cpZKEAX9QYXp&status=SUCCEEDED', function (data) {
+      $.getJSON('https://api.apify.com/v2/actor-tasks/ohn8tbHkwZzfvW52d/runs/last/dataset/items?token=gLD53qGPFBJL8cpZKEAX9QYXp&ui=1&status=SUCCEEDED', function (data) {
+         weekly_data = data;
+		 if (hourly_data) showHourly(); /* wait for all data before showing */
+      });
+    }
+
+    function showWeek() {
+      data = weekly_data;
+      $.each(data[0].pageFunctionResult, function(index, item) {
+        if (index > 0)
+        {
+          var element = $('.day:eq(' + (index-1) + ')');
+
+          if (index < 5 && (item.day == 'Fri' || item.day == 'Sun'))
+            element.addClass('divider')
+
+        console.log(item);
+          element.find('.label').text(item.day);
+          element.find('.high').data('animate-to',item.high);
+          element.find('.low').data('animate-to',item.low);
+          element.find('.details > div > div').text(item.details);
+          element.find('.icon').addClass('style' + item.icon);
+
+          var o = element;
+          window.setTimeout(function () {
+            o.addClass('loaded');
+            animateNumbers(o.find('.high'), false);
+            animateNumbers(o.find('.low'), false);
+          }, index * (waterfall_delay*2));
+        }
+      });
+    }
+
+    function hideWeek() {
+      $('.slide2 *[data-animate-to]').each (function() {
+        $(this).html('').data('animate-interval',100);
+      });
+      $('.slide2 .loaded').removeClass('loaded');
+    }
+
+    function animateNumbers(element, has_degrees=false) {
+      element=$(element);
+
+      degrees_str = '';
+      if (has_degrees)
+        degrees_str = '&deg;';
+
+      if (!element.data('animate-to')) return false;
+      var animate_to = parseInt(element.data('animate-to'));
+
+      var animate_interval = 100;
+      if (element.data('animate-interval')) animate_interval = element.data('animate-interval');
+
+      var animate_val = parseInt(element.html().replace('&deg;',''));
+      if (element.html() == '') animate_val = animate_to - 16;
+
+      animate_val++;
+      element.html(animate_val + degrees_str);
+
+      current_time = 1-((animate_to - animate_val) / 15);
+      start_val = 0;
+      change_amount = 150;
+      duration = 1;
+      animate_interval = easeInQuad(current_time, start_val, change_amount, duration);
+
+      if (animate_val < animate_to)
+        setTimeout(function() { animateNumbers(element, has_degrees) }, animate_interval);
+    }
+
+    var waterfall_delay = 50;
+
+    initHourly();
+    initWeek();
+
+  });
+
+ function easeInQuad(t, b, c, d) {
+  t /= d;
+  return c*t*t + b;
+};
+
+/* Prevent overscroll */
+var selScrollable = '.scrollable';
+// Uses document because document will be topmost level in bubbling
+$(document).on('touchmove',function(e){
+  e.preventDefault();
+});
+// Uses body because jQuery on events are called off of the element they are
+// added to, so bubbling would not work if we used document instead.
+$('body').on('touchstart', selScrollable, function(e) {
+  if (e.currentTarget.scrollTop === 0) {
+    e.currentTarget.scrollTop = 1;
+  } else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
+    e.currentTarget.scrollTop -= 1;
+  }
+});
+// Stops preventDefault from being called on document if it sees a scrollable div
+// Stops preventDefault from being called on document if it sees a scrollable div
+$('body').on('touchmove', selScrollable, function(e) {
+  e.stopPropagation();
+});
+
+
+
+  </script>
+</body>
+</html>
