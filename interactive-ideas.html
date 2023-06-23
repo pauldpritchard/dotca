@@ -185,6 +185,7 @@ function draw() {
   
   // Set the fill color
   fill( fillColor );
+  pushMatrix();
   rotate(1);
   
   // This block will only run if the mouse or touschreen are
@@ -225,6 +226,8 @@ function draw() {
 // ... and that's the end of draw(). Now it will repeat indefinitely.
 
 // that's all folks!
+
+    popMatrix();
 
 
 function keyTyped() {
