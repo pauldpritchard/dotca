@@ -170,7 +170,7 @@ function setup() {
 function draw() {
   
   // if 3 seconds have not elapsed since the start time, do nothing
-  if( millis() - startTime < 3000 ){
+  if( millis() - startTime < 1000 ){
     return;
   }
   // clear the title screen on the first frame
@@ -213,7 +213,8 @@ function draw() {
   
   // Define the fill color based off of the time variable.
   // as time goes by, the color will change.
-  fillColor = color( t , 100 , 100 , markerAlpha );
+  //fillColor = color( t , 100 , 100 , markerAlpha );
+  fillColor = color( t , 100 , 100 , 1 );
   
   // Set the fill color
   fill( fillColor );
