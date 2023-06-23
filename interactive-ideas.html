@@ -40,7 +40,7 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  animation: filter-animation 8s infinite;
+  animation: filter-animation 4s infinite;
 }
 .overlay {
   z-index: 100000;
@@ -62,12 +62,8 @@ body {
     filter: hue-rotate(0deg);
   }
   
-  50% {
-    filter: hue-rotate(100deg);
-  }
-  
   100% {
-    filter: hue-rotate(0deg);
+    filter: hue-rotate(360deg);
   }
 }
 
