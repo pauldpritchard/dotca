@@ -40,7 +40,6 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  animation: filter-animation 4s infinite;
 }
 .overlay {
   z-index: 100000;
@@ -56,6 +55,10 @@ body {
   padding: 10px 80px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 5px 5px rgba(0,0,0,0.5);
 }
+  canvas {
+      animation: filter-animation 4s infinite;
+    filter: contrast(2);
+  }
 
   @keyframes filter-animation {
   0% {
