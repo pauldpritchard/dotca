@@ -40,6 +40,7 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: center;
+  animation: filter-animation 8s infinite;
 }
 .overlay {
   z-index: 100000;
@@ -54,6 +55,20 @@ body {
   border-radius: 20px;
   padding: 10px 80px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 5px 5px rgba(0,0,0,0.5);
+}
+
+  @keyframes filter-animation {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  
+  50% {
+    filter: hue-rotate(100deg);
+  }
+  
+  100% {
+    filter: hue-rotate(0deg);
+  }
 }
 
 
@@ -126,7 +141,7 @@ function setup() {
   colorMode( HSB );
   
   // set the background color to black
-  bgColor = color( 36 , 35 , 40 );
+  bgColor = color( 252 , 12 , 16 );
   
   // dots do not have a stroke (outline) drawn around them
   noStroke();
@@ -144,7 +159,7 @@ function setup() {
   fill( 0 , 0 , 0 , 1 );
   textAlign( CENTER );
   textSize( 60 );
-  text("v1 " , 0.5*xRes , 0.5*yRes );
+  text("v2 " , 0.5*xRes , 0.5*yRes );
   textSize( 30 );
   text( "Click (or touch) and hold to draw.\n-marthematicist-" , 0.5*xRes , 0.5*yRes + 35 );
   startTime = millis();
