@@ -179,14 +179,6 @@ function draw() {
     firstFrame = false;
   }
   
-  // Increase t by dt. A new frame is being frawn, so t
-  // goes up. Time marches on...
-  t += dt;
-  
-  // Set t equal to t modulo 360. Effectively causes t to
-  // loop back to zero when it goes over 360.
-  t %= 360;
-  
   // Create variables x and y based on the mouse position.
   // The -0.5*_Res is to measure the position based off of the
   // center of the screen instead of the upper left corner.
@@ -225,6 +217,14 @@ function draw() {
   // activated. ||  means "or" in code! BTW, && means "and".
   if( touchIsDown || mouseIsPressed ){
     
+  // Increase t by dt. A new frame is being frawn, so t
+  // goes up. Time marches on...
+  t += dt;
+  
+  // Set t equal to t modulo 360. Effectively causes t to
+  // loop back to zero when it goes over 360.
+  t %= 360;
+  
     // The next part is the where the real magic happens:
     // This block will loop several times.
     // The first time the variable i will equal 0. i++ means that i
