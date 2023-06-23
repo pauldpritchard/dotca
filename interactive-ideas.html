@@ -126,7 +126,7 @@ function setup() {
   fill( 0 , 0 , 0 , 1 );
   textAlign( CENTER );
   textSize( 60 );
-  text("KALEIDOSCOPE" , 0.5*xRes , 0.5*yRes );
+  text("v1 " , 0.5*xRes , 0.5*yRes );
   textSize( 30 );
   text( "Click (or touch) and hold to draw.\n-marthematicist-" , 0.5*xRes , 0.5*yRes + 35 );
   startTime = millis();
@@ -185,7 +185,7 @@ function draw() {
   
   // Set the fill color
   fill( fillColor );
-  pushMatrix();
+  push();
   rotate(1);
   
   // This block will only run if the mouse or touschreen are
@@ -227,7 +227,7 @@ function draw() {
 
 // that's all folks!
 
-    popMatrix();
+    pop();
 
 
 function keyTyped() {
