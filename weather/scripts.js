@@ -259,7 +259,8 @@ $('body').on('touchmove', selScrollable, function(e) {
   e.stopPropagation();
 });
 
-/* Refresh when overscrolling hours */
+/* Refresh when overscrolling hours 
+-- not working because using window not element scrollY
 const pullToRefresh = document.querySelector('.hourly');
 let touchstartY = 0;
 document.addEventListener('touchstart', e => {
@@ -279,3 +280,4 @@ document.addEventListener('touchend', e => {
     location.reload();
   }
 });
+*/

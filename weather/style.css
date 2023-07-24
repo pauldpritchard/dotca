@@ -27,7 +27,7 @@ sup {
 }
 
 .now {
-  height: 23vh;
+  height: 24vh;
   width: 100vw;
   position: absolute;
 }
@@ -55,9 +55,9 @@ sup {
 }
 
 .hourly {
-  height: 77vh;
+  height: 76vh;
   width: 100vw;
-  top: 23vh;
+  top: 24vh;
   position: absolute;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -102,6 +102,10 @@ sup {
 }
 
 .slide2 {
+  box-shadow: inset 28px 0 0 0 rgba(67,74,80, 0);
+  transition: box-shadow 0.5s ease;
+}
+.slide2.slick-active {
   box-shadow: inset 28px 0 0 0 rgba(67,74,80, 0.35);
 }
 .slide2 .days {
