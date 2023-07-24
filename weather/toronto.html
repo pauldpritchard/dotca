@@ -1,0 +1,112 @@
+
+
+
+<!doctype html>
+
+<html lang="en" style="background-color: #242328;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <title>Weather App</title>
+  <link rel="apple-touch-icon" href="app-icon.png">
+  <link rel="icon" sizes="192x192" href="app-icon.png">
+  <link rel="stylesheet" href="style.css">
+
+<link rel="canonical" href="https://paulpritchard.com/weather/toronto">
+<meta property="og:image" content="app-icon.png" />
+<meta property="og:image:secure_url" content="app-icon.png" />
+<meta property="og:image:width" content="1012" />
+<meta property="og:image:height" content="506" />
+</head>
+
+<body style="background-color: #242328;">
+
+  <div class="slider">
+    <div class="slide1 slide">
+      <div class="now">
+        <div class="text">
+          <div class="label">Now</div>
+          <div class="temperature"></div>
+        </div>
+        <div class="icon">
+          <div class="moon"></div>
+          <div class="sun">
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+            <div class="ray"></div>
+          </div>
+          <div class="cloud sidecloud-left"></div>
+          <div class="snow snow-sidecloud-left">
+            <div class="snowflake-row">
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+            </div>
+            <div class="snowflake-row">
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+            </div>
+          </div>
+         <div class="cloud sidecloud-right"></div>
+          <div class="rain rain-sidecloud-right"></div>
+          <div class="cloud largecloud"></div>
+          <div class="rain rain-largecloud"></div>
+          <div class="snow snow-largecloud">
+            <div class="snowflake-row">
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+            </div>
+            <div class="snowflake-row">
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+              <div class="snowflake"></div>
+            </div>
+          </div>
+          <div class="cloud backcloud"></div>
+        </div>
+
+      </div>
+      <div class="hourly scrollable"><!-- bar graph --></div>
+    </div>
+
+    <div class="slide2 slide">
+      <div class="days">
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="slick.min.js"></script>
+  <script src="scripts.js"></script>
+  <script type="text/javascript">
+
+  $(function() {
+    initHourly();
+    initWeek();
+  });
+
+  </script>
+</body>
+</html>
