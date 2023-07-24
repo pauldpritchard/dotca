@@ -109,7 +109,7 @@ sup {
   box-shadow: inset 28px 0 0 0 rgba(67,74,80, 0.35);
 }
 .slide2 .days {
-  padding: 25px 0 10px;
+  padding: 15px 0 20px;
 }
 
 /* BAR STYLES */
@@ -411,7 +411,7 @@ sup {
 
 .day .highlow {
   width: 19%;
-  margin: 10px 0 17px 0;
+  margin: 15px 0;
   vertical-align: middle;
 }
 .day .highlow .high {
@@ -420,7 +420,7 @@ sup {
 }
 .day .highlow .low {
   font-size: 20px;
-  margin-top: -5px;
+  margin-top: -6px;
   margin-left: 3px;
   color: #999ea4;
 }
@@ -430,7 +430,7 @@ sup {
   font-size: 20px;
   line-height: 24px;
   vertical-align: middle;
-  margin-top: 5px;
+  margin-top: 0;
 }
 
 /* ANIMATIONS */
