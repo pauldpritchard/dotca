@@ -238,7 +238,7 @@ $(function() {
   return c*t*t + b;
 };
 
-/* Prevent overscroll */
+/* Prevent overscroll 
 var selScrollable = '.scrollable';
 // Uses document because document will be topmost level in bubbling
 $(document).on('touchmove',function(e){
@@ -257,7 +257,7 @@ $('body').on('touchstart', selScrollable, function(e) {
 // Stops preventDefault from being called on document if it sees a scrollable div
 $('body').on('touchmove', selScrollable, function(e) {
   e.stopPropagation();
-});
+});*/
 
 /* Refresh when overscrolling hours 
 -- not working because using window not element scrollY
