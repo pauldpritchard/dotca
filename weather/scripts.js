@@ -55,24 +55,11 @@
     }
 
     function getHourlyData() {
-//      $.getJSON('https://api.apifier.com/v1/dJdZrL8RdoWxCkfEj/crawlers/Xt2KTxvjaP35HWpRx/lastExec?token=gLD53qGPFBJL8cpZKEAX9QYXp&status=SUCCEEDED', function (data) {
-     $.getJSON('https://api.apify.com/v2/actor-tasks/GJpQWpA5osWMXqmJ7/runs/last/dataset/items?token=gLD53qGPFBJL8cpZKEAX9QYXp&ui=1&status=SUCCEEDED', function (data) {
-//     $.getJSON('https://api.apify.com/v2/datasets/vng8N5703brvj6WGo/items?format=json', function (data) {
+     $.getJSON(hourly_url, function (data) {
        hourly_data = data;
        if (weekly_data) showHourly(); /* wait for all data before showing */
      });
     }
-//     function getHourlyData() {
-// //      $.getJSON('https://api.apifier.com/v1/dJdZrL8RdoWxCkfEj/crawlers/Xt2KTxvjaP35HWpRx/lastExec?token=gLD53qGPFBJL8cpZKEAX9QYXp&status=SUCCEEDED', function (data) {
-//      $.getJSON('https://api.apify.com/v2/actor-tasks/GJpQWpA5osWMXqmJ7/runs/last/dataset/items?token=gLD53qGPFBJL8cpZKEAX9QYXp&ui=1&status=SUCCEEDED', function (data) {
-//        console.log(data);
-//        var latest_results_url = data.resultsUrl;
-//        $.getJSON(latest_results_url, function(data) {
-//         hourly_data = data;
-//         if (weekly_data) showHourly(); /* wait for all data before showing */
-//        });
-//      });
-//     }
 
     function showHourly() {
       $('.hourly').scrollTop(0);
@@ -166,9 +153,7 @@
     }
 
     function getWeekData() {
-      //$.getJSON('https://api.apifier.com/v1/dJdZrL8RdoWxCkfEj/crawlers/4r84w6cK6SmxYAZeE/lastExec?token=gLD53qGPFBJL8cpZKEAX9QYXp&status=SUCCEEDED', function (data) {
-      $.getJSON('https://api.apify.com/v2/actor-tasks/ohn8tbHkwZzfvW52d/runs/last/dataset/items?token=gLD53qGPFBJL8cpZKEAX9QYXp&ui=1&status=SUCCEEDED', function (data) {
-      //$.getJSON('https://api.apify.com/v2/datasets/KhfCdiu30wKimIqJc/items?format=json', function (data) {
+      $.getJSON(weekly_url, function (data) {
 	    
          weekly_data = data;
 		 if (hourly_data) showHourly(); /* wait for all data before showing */
@@ -239,6 +224,9 @@
     }
 
     var waterfall_delay = 50;
+
+    initHourly();
+    initWeek();
 
   });
 
