@@ -57,7 +57,7 @@ sup {
 .hourly {
   height: 77vh;
   width: 100vw;
-  top: 27vh;
+  top: 23vh;
   position: absolute;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
