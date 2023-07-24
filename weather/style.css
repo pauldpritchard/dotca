@@ -404,7 +404,7 @@ sup {
 
 .day .highlow {
   width: 21%;
-  margin: 17px 0;
+  margin: 7px 0 17px 0;
   vertical-align: middle;
 }
 .day .highlow .high {
@@ -451,7 +451,7 @@ sup {
   transition: transform 0.5s cubic-bezier(0, 0, 0.23, 1);
 }
 .slick-active .day.loaded .icon {
-  transform: scale(1);
+  transform: scale(0.9);
 }
 
 /* Details */
