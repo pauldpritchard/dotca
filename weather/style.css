@@ -307,7 +307,7 @@ sup {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
--active .now.loaded .label {
+.slick-active .now.loaded .label {
   opacity: 1;
 }
 .now .icon {
