@@ -104,6 +104,9 @@ sup {
 .slide-2 {
   box-shadow: inset 28px 0 0 0 rgba(67,74,80, 0.35);
 }
+.slide-2 .days {
+  padding: 20px 0 0;
+}
 
 /* BAR STYLES */
 
@@ -404,16 +407,16 @@ sup {
 
 .day .highlow {
   width: 21%;
-  margin: 7px 0 17px 0;
+  margin: 10px 0 17px 0;
   vertical-align: middle;
 }
 .day .highlow .high {
-  font-size: 50px;
+  font-size: 46px;
   font-weight: bold;
 }
 .day .highlow .low {
   font-size: 20px;
-  margin-top: -8px;
+  margin-top: -5px;
   margin-left: 3px;
 }
 
