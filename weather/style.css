@@ -27,7 +27,7 @@ sup {
 }
 
 .now {
-  height: 27vh;
+  height: 23vh;
   width: 100vw;
   position: absolute;
 }
@@ -55,7 +55,7 @@ sup {
 }
 
 .hourly {
-  height: 73vh;
+  height: 77vh;
   width: 100vw;
   top: 27vh;
   position: absolute;

@@ -164,6 +164,7 @@ $(function() {
 
     function showWeek() {
       data = weekly_data;
+      console.log(data);
       $.each(data[0].pageFunctionResult, function(index, item) {
         if (index > 0)
         {
