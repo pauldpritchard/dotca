@@ -63,8 +63,8 @@ sup {
   -webkit-overflow-scrolling: touch;
 }
 .hourly .hour {
-  height: 36px;
-  line-height: 36px;
+  height: 40px;
+  line-height: 40px;
   overflow: hidden;
 }
 .hourly .hour.divider:after {
@@ -78,14 +78,14 @@ sup {
 }
 .hourly .hour .time {
   position: absolute;
-  height: 36px;
-  font-size: 21px;
-  margin: -6px 0 0 7px;
+  height: 40px;
+  font-size: 22px;
+  margin: -5px 0 0 7px;
   z-index: 10;
 }
 .hourly .hour .bar {
   display: inline-block;
-  height: 36px;
+  height: 40px;
   box-sizing: border-box;
   position: relative;
   z-index: 5;
