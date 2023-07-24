@@ -1,4 +1,6 @@
-  $(function() {
+alert(navigator.userAgent);
+
+$(function() {
 
     var hourly_data;
     var weekly_data;
