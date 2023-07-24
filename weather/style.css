@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Conduit';
-  src: url(cbold.woff) format('woff');
+  src: url(../cbold.woff) format('woff');
   font-weight: bold;
 }
 @font-face {
   font-family: 'Conduit';
-  src: url(creg.woff) format('woff');
+  src: url(../creg.woff) format('woff');
   font-weight: normal;
 }
 
