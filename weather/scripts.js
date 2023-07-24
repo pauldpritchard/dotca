@@ -1,4 +1,4 @@
-alert(navigator.userAgent);
+console.log(navigator.userAgent);
 
 $(function() {
 
