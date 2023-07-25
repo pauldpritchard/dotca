@@ -250,6 +250,15 @@ $(function() {
     initHourly();
     initWeek();
 
+//if the website is not opened in app mode show (i.e. in a browser) the add to homescreen prompt
+if (
+  (("standalone" in window.navigator) && !window.navigator.standalone) // ios
+  ||
+  (!window.matchMedia(' (display-mode: standalone) ').matches ) // android
+  ) {
+    $('.web-app-notice').show();
+  }
+
   });
 
  function easeInQuad(t, b, c, d) {
@@ -260,6 +269,8 @@ $(function() {
 function fadeout() {
   $('body').addClass('faded');
 }
+
+
 
 /* Prevent overscroll 
 var selScrollable = '.scrollable';
