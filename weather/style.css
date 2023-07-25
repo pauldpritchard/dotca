@@ -60,12 +60,12 @@ sup {
   font-size: 19px;
   font-weight: normal;
   z-index: 30;
+  overflow-y: scroll;
 }
 .alert-content .alert-text {
   padding: 30px;
   white-space: pre-wrap;
   overflow-wrap: break-word;
-  overflow-y: scroll;
 }
 .alerts.is-open .alert-content {
   display: block;
