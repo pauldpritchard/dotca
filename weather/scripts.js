@@ -48,7 +48,7 @@ $(function() {
     function initHourly() {
       for (i=0; i<24; i++)
       {
-        $('.hourly').append('<div class="hour"><div class="time"></div><div class="bar"></div><div class="temperature"></div></div>');
+        $('.hourly').prepend('<div class="hour"><div class="time"></div><div class="bar"></div><div class="temperature"></div></div>');
       }
       if (!hourly_data)
         getHourlyData();
