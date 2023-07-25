@@ -132,6 +132,7 @@ $(function() {
           {
             $('.slide1').addClass('has-alerts');
             $('.alert-title').text(item.title);
+            $('.alert-content').text(item.content);
           }
           if (item.type == 'now')
           {

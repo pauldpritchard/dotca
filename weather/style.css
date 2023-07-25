@@ -49,6 +49,22 @@ sup {
   line-height: 5vh;
   font-size: 19px;
 }
+.alert-content {
+  display: none;
+  position: absolute;
+  top: 5vh;
+  bottom: 0;
+  padding: 30px;
+  background: #fff;
+  color: #242328;
+  font-size: 19px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
+}
+.alerts.is-open .alert-content {
+  display: block;
+}
 .slide1.has-alerts .alerts {
   display: block;
 }
