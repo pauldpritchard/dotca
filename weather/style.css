@@ -38,14 +38,15 @@ sup {
 
 .alerts {
   display: none;
-  background: #900;
+  background: linear-gradient(to bottom, #a01a1a, #9b2222);
   color: #fff;
   font-weight: bold;
   display: none;
+  margin-bottom: -1vh;
 }
 .alert-title {
   text-align: center;
-  line-height: 2vh;
+  line-height: 5vh;
   font-size: 19px;
 }
 .slide1.has-alerts .alerts {
