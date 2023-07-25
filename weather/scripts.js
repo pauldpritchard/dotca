@@ -128,7 +128,11 @@ $(function() {
         console.log('trying', weekly_data);
 
         $.each(weekly_data[0].pageFunctionResult, function(index, item) {
-          console.log(item.type);
+          if (item.type == 'alert')
+          {
+            $('.slide1').addClass('has-alerts');
+            $('.alert-title').text(item.title);
+          }
           if (item.type == 'now')
           {
             console.log(item);
