@@ -59,6 +59,7 @@ sup {
   color: #242328;
   font-size: 19px;
   font-weight: normal;
+  z-index: 30;
 }
 .alert-content .alert-text {
   padding: 30px;
