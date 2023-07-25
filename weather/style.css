@@ -46,18 +46,19 @@ sup {
 }
 .alert-title {
   text-align: center;
-  line-height: 5vh;
+  line-height: 6vh;
   font-size: 19px;
 }
 .alert-content {
   display: none;
   position: absolute;
-  top: 5vh;
+  top: 6vh;
   bottom: 0;
   width: 100vw;
   background: #fff;
   color: #242328;
-  font-size: 19px;
+  font-size: 20px;
+  letter-spacing: 0;
   font-weight: normal;
   z-index: 30;
   overflow-y: scroll;
@@ -74,8 +75,8 @@ sup {
   display: block;
 }
 .slide1.has-alerts .hourly {
-  top: 26vh;
-  height: 74vh;
+  top: 28vh;
+  height: 72vh;
 }
 
 
