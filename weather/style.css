@@ -63,13 +63,15 @@ sup {
 .switcher .inner {
   background: #242328;
   padding: 3px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .switcher a {
   border-radius: 100px;
   font-size: 19px;
   font-weight: bold;
   text-align: center;
-  display: block;
+  flex: 1 0 50%;
   line-height: 41px;
   color: #fff;
   text-decoration: none;
