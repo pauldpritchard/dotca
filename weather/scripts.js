@@ -127,7 +127,7 @@ $(function() {
         // Current conditions come from weekly data
         console.log('trying', weekly_data);
 
-        $.each(weekly_data.pageFunctionResult, function(index, item) {
+        $.each(weekly_data[0].pageFunctionResult, function(index, item) {
           console.log(item.type);
           if (item.type == 'now')
           {
@@ -195,7 +195,7 @@ $(function() {
             o.addClass('loaded');
             animateNumbers(o.find('.high'), false);
             animateNumbers(o.find('.low'), false);
-          }, (days-1) * (waterfall_delay*2));
+          }, (days) * (waterfall_delay*2));
         }
       });
     }
