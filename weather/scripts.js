@@ -256,7 +256,7 @@ if (
   ||
   (!window.matchMedia(' (display-mode: standalone) ').matches ) // android
   ) {
-    $('.web-app-notice').attr('style','');
+    $('.web-app-notice').addClass('is-open');
   }
 
   });

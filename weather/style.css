@@ -57,8 +57,8 @@ sup {
   width: 100vw;
   background: #fff;
   color: #242328;
-  font-size: 20px;
-  letter-spacing: 0;
+  font-size: 22px;
+  letter-spacing: 0.015em;
   font-weight: normal;
   z-index: 30;
   overflow-y: scroll;
@@ -215,6 +215,10 @@ sup {
   bottom: 0;
   z-index: 20;
   animation: float 5s ease-in-out infinite;
+  display: none;
+}
+.web-app-notice.is-open {
+  display: block;
 }
 @keyframes float {
   0% { transform: translateY(0); }
