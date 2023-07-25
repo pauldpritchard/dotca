@@ -48,10 +48,10 @@ sup {
   line-height: 2vh;
   font-size: 19px;
 }
-.slide1 .has-alerts .alerts {
+.slide1.has-alerts .alerts {
   display: block;
 }
-.slide1 .has-alerts .hourly {
+.slide1.has-alerts .hourly {
   top: 26vh;
   height: 74vh;
 }
