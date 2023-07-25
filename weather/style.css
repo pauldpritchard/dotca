@@ -158,7 +158,37 @@ sup {
   padding: 5px 0 0;
 }
 
-/* BAR STYLES */
+
+/* App Notices */
+
+.web-app-notice {
+  position: absolute;
+  bottom: 0;
+  z-index: 20;
+}
+.web-app-notice .content {
+  background: #fff;
+  margin: 30px;
+  border-radius: 25px;
+  color: #242328;
+  font-weight: bold;
+  font-size: 19px;
+  padding: 20px 36px;
+}
+.web-app-notice div:after {
+  position: absolute;
+  border-top: solid 15px #fff;
+  border-left: solid 15px transparent;
+  border-right: solid 15px transparent;
+  left: 50%;
+  margin-left: -15px;
+  width: 0;
+  height: 0;
+  bottom: 16px;
+  content: '';
+}
+
+/* HOURLY BAR STYLES ====================================================================================================================== */
 
 /* SUNNY */
 
@@ -413,7 +443,9 @@ sup {
   transform: translateX(0);
 }
 */
-/* Slide 2 ============================================================= */
+
+
+/* Slide 2 ==================================================================================================================  */
 
 .day {
   height: 16.6vh;
@@ -523,9 +555,9 @@ sup {
   opacity: 1;
 }
 
-/* icons.html ============================================================= */
+/* ICON STYLES ====================================================================================================================== */
 
-/* Missing: slow rain, snow, sleet/hail */
+/* Missing: slow rain, snow, sleet/hail, smoke */
 
 .icon {
   position: relative;
