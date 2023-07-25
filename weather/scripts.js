@@ -125,17 +125,21 @@ $(function() {
       if (weekly_data)
       {
         // Current conditions come from weekly data
-        item = weekly_data[0].pageFunctionResult[0];
-        console.log(item);
-        $('.now').addClass('loaded');
-        if (item.icon == 28) item.icon = 12; // Drizzle == rain
-        if (item.icon == 24) item.icon = 10; // Mist == clouds
-        $('.now .icon').addClass('style' + item.icon);
-        $('.now .temperature').data('animate-to',item.high);
-        $('.long-text').text(item.long_text);
-        if (item.details != '') /* Humidex */
-          $('.now .temperature').data('animate-to',item.details);
-        animateNumbers($('.now .temperature'), true);
+        $.each(data[0].pageFunctionResult, function(index, item) {
+          if (item.type == 'now')
+          {
+            console.log(item);
+            $('.now').addClass('loaded');
+            if (item.icon == 28) item.icon = 12; // Drizzle == rain
+            if (item.icon == 24) item.icon = 10; // Mist == clouds
+            $('.now .icon').addClass('style' + item.icon);
+            $('.now .temperature').data('animate-to',item.high);
+            $('.long-text').text(item.long_text);
+            if (item.details != '') /* Humidex */
+              $('.now .temperature').data('animate-to',item.details);
+            animateNumbers($('.now .temperature'), true);
+          }
+        });
       }
     }
     function hideHourly() {
@@ -167,7 +171,7 @@ $(function() {
       data = weekly_data;
       console.log(data);
       $.each(data[0].pageFunctionResult, function(index, item) {
-        if (index > 0)
+        if (item.type == 'day')
         {
           var element = $('.day:eq(' + (index-1) + ')');
 
