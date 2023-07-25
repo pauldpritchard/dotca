@@ -171,12 +171,12 @@ sup {
   position: absolute;
   bottom: 0;
   z-index: 20;
-  animation: float 4s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 @keyframes float {
   0% { transform: translateY(0); }
-  10% { transform: translateY(0); }
-  55% { transform: translateY(-10px); }
+  40% { transform: translateY(0); }
+  70% { transform: translateY(-6px); }
   100% { transform: translateY(0); }
 }
 .web-app-notice .content {
@@ -205,6 +205,23 @@ sup {
   width: 16px;
   vertical-align: sub;
   margin: 0 8px 0 3px;
+}
+
+.desktop-notice {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.desktop-notice .content {
+  max-width: 40vw;
+}
+@media only screen and (min-width: 760px) {
+  .desktop-notice {
+    display: flex;
+  }
+  .wrapper {
+    display: none;
+  }
 }
 
 /* HOURLY BAR STYLES ====================================================================================================================== */
