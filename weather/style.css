@@ -54,10 +54,14 @@ sup {
   position: absolute;
   top: 5vh;
   bottom: 0;
-  padding: 30px;
+  width: 100vw;
   background: #fff;
   color: #242328;
   font-size: 19px;
+  font-weight: normal;
+}
+.alert-content .alert-text {
+  padding: 30px;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   overflow-y: scroll;
