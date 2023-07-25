@@ -62,12 +62,22 @@ sup {
 .long-text {
   margin: 30px 33px;
   font-size: 19px;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.slick-active .long-text {
+  opacity: 1;
 }
 .switcher {
   background: linear-gradient(to bottom, #484e54, #43484d);
   padding: 3px;
-  margin: 30px 33px 40px;
+  margin: 30px 33px 50px;
   border-radius: 100px;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.slick-active .switcher {
+  opacity: 1;
 }
 .switcher .inner {
   border-radius: 100px;
@@ -109,7 +119,7 @@ sup {
   border-bottom: 1px dashed rgba(255,255,255,0.4);
   left: 0;
   right: 0;
-  bottom: 17px;
+  bottom: 0;
   z-index: 7;
 }
 .hourly .hour .time {
@@ -416,7 +426,7 @@ sup {
   border-bottom: 1px dashed rgba(255,255,255,0.4);
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 17px;
   z-index: 7;
 }
 
