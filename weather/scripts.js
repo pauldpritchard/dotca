@@ -132,6 +132,7 @@ $(function() {
         if (item.icon == 24) item.icon = 10; // Mist == clouds
         $('.now .icon').addClass('style' + item.icon);
         $('.now .temperature').data('animate-to',item.high);
+        $('.long-text').text(item.long_text);
         if (item.details != '') /* Humidex */
           $('.now .temperature').data('animate-to',item.details);
         animateNumbers($('.now .temperature'), true);

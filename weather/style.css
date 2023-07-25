@@ -59,10 +59,14 @@ sup {
   margin-top: 12%;
 }
 
+.text-forecast {
+  margin: 30px 33px;
+  font-size: 19px;
+}
 .switcher {
   background: linear-gradient(to bottom, #484e54, #43484d);
   padding: 3px;
-  margin: 30px 33px;
+  margin: 30px 33px 40px;
   border-radius: 100px;
 }
 .switcher .inner {
