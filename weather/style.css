@@ -58,17 +58,24 @@ sup {
   background: linear-gradient(to bottom, #484e54, #43484d);
   padding: 3px;
   margin: 30px 33px;
+  border-radius: 100px;
 }
 .switcher .inner {
   background: #242328;
   padding: 3px;
 }
 .switcher a {
+  border-radius: 100px;
   font-size: 19px;
   font-weight: bold;
   text-align: center;
   display: block;
   line-height: 41px;
+  color: #fff;
+  text-decoration: none;
+}
+.switcher a.active {
+  background: linear-gradient(to bottom, #484e54, #43484d);
 }
 
 .hourly {
