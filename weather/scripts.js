@@ -238,6 +238,10 @@ $(function() {
   return c*t*t + b;
 };
 
+function fadeout() {
+  $('body').addClass('faded');
+}
+
 /* Prevent overscroll 
 var selScrollable = '.scrollable';
 // Uses document because document will be topmost level in bubbling
