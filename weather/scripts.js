@@ -125,7 +125,7 @@ $(function() {
       if (weekly_data)
       {
         // Current conditions come from weekly data
-        $.each(data[0].pageFunctionResult, function(index, item) {
+        $.each(weekly_data.pageFunctionResult, function(index, item) {
           if (item.type == 'now')
           {
             console.log(item);
