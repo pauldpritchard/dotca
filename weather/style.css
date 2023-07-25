@@ -172,8 +172,14 @@ sup {
   border-radius: 25px;
   color: #242328;
   font-weight: bold;
-  font-size: 19px;
-  padding: 20px 36px;
+  font-size: 21px;
+  padding: 25px 28px;
+  letter-spacing: 0.02em;
+  animation: float 2s alternate infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
 }
 .web-app-notice div:after {
   position: absolute;
