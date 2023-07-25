@@ -253,8 +253,8 @@ $(function() {
 //if the website is not opened in app mode show (i.e. in a browser) the add to homescreen prompt
 if (
   (("standalone" in window.navigator) && !window.navigator.standalone) // ios
-  ||
-  (!window.matchMedia(' (display-mode: standalone) ').matches ) // android
+  /*||
+  (!window.matchMedia(' (display-mode: standalone) ').matches )*/ // android
   ) {
     $('.web-app-notice').addClass('is-open');
   }
