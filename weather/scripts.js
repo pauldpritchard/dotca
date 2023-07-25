@@ -128,6 +128,7 @@ $(function() {
         console.log('trying', weekly_data);
 
         $.each(weekly_data.pageFunctionResult, function(index, item) {
+          console.log(item.type);
           if (item.type == 'now')
           {
             console.log(item);
