@@ -170,12 +170,14 @@ $(function() {
     function showWeek() {
       data = weekly_data;
       console.log(data);
+      days = 0;
       $.each(data[0].pageFunctionResult, function(index, item) {
         if (item.type == 'day')
         {
-          var element = $('.day:eq(' + (index-1) + ')');
+          days++;
+          var element = $('.day:eq(' + (days) + ')');
 
-          if (index < 5 && (item.day == 'Fri' || item.day == 'Sun'))
+          if (days < 5 && (item.day == 'Fri' || item.day == 'Sun'))
             element.addClass('divider')
 
         console.log(item);
@@ -190,7 +192,7 @@ $(function() {
             o.addClass('loaded');
             animateNumbers(o.find('.high'), false);
             animateNumbers(o.find('.low'), false);
-          }, index * (waterfall_delay*2));
+          }, (days-1) * (waterfall_delay*2));
         }
       });
     }
