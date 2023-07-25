@@ -178,7 +178,7 @@ $(function() {
         if (item.type == 'day')
         {
           days++;
-          var element = $('.day:eq(' + (days) + ')');
+          var element = $('.day:eq(' + (days-1) + ')');
 
           if (days < 5 && (item.day == 'Fri' || item.day == 'Sun'))
             element.addClass('divider')
@@ -195,7 +195,7 @@ $(function() {
             o.addClass('loaded');
             animateNumbers(o.find('.high'), false);
             animateNumbers(o.find('.low'), false);
-          }, (days) * (waterfall_delay*2));
+          }, (days-1) * (waterfall_delay*2));
         }
       });
     }
