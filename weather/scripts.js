@@ -45,6 +45,10 @@ $(function() {
       last_slide = currentSlide;
     });
 
+    $('.alerts').on('click', function (){
+      $('.alerts').toggleClass('is-open');
+    });
+
     function initHourly() {
       for (i=0; i<24; i++)
       {
