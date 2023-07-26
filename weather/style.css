@@ -24,6 +24,13 @@ body {
   align-items: center;
   justify-content: center;
 }
+iframe {
+  display: block;
+  background: #242328;
+  border: none;
+  height: 100vh;
+  width: 100vw;
+}
 .wrapper {
   opacity: 1;
   transition: opacity 0.3s ease;
