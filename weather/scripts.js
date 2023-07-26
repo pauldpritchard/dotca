@@ -269,12 +269,8 @@ if (
 function swapcity(cityname) {
   if (cityname == 'huntsville') {
     $('#toronto-link').removeClass('active');
-    $('link[rel="apple-touch-icon"]').attr('href', 'app-icon-huntsville.png');
-    $('link[rel="icon"]').attr('href', 'app-icon-huntsville.png');
   } else {
     $('#huntsville-link').removeClass('active');
-    $('link[rel="apple-touch-icon"]').attr('href', 'app-icon.png');
-    $('link[rel="icon"]').attr('href', 'app-icon.png');
   }
   fadeout();
   location.href = cityname;

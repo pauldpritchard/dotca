@@ -12,8 +12,8 @@
   <meta name="theme-color" content="#242328" />
 
   <title>Weather App</title>
-  <link rel="apple-touch-icon" href="app-icon.png">
-  <link rel="icon" sizes="192x192" href="app-icon.png">
+  <link rel="apple-touch-icon" id="apple-touch-icon" href="app-icon.png">
+  <link rel="icon" sizes="192x192" id="icon" href="app-icon.png">
   <link rel="stylesheet" href="style.css">
 
 <link rel="canonical" href="https://paulpritchard.com/weather/">
@@ -25,12 +25,24 @@
 
 <body style="background-color: #242328;">
 
-  <iframe src="" id="iframe">Your browser does not support iframes</iframe>
+  <iframe src="" id="iframe" onload="updateicon()">Your browser does not support iframes</iframe>
 
   <script type="text/javascript">
     cityname = 'toronto';
-    if (location.hash) cityname = location.hash;
+    if (location.hash) cityname = location.hash.replace('#','');
     document.getElementById('iframe').src = cityname;
+
+    function updateicon() {
+        cityname = 'toronto';
+        if (location.hash) cityname = location.hash.replace('#','');
+        if (cityname == 'huntsville') {
+            document.getElementById('apple-touch-icon').href = 'app-icon-huntsville.png';
+            document.getElementById('icon').href = 'app-icon-huntsville.png';
+        } else {
+            document.getElementById('apple-touch-icon').href = 'app-icon.png';
+            document.getElementById('icon').href = 'app-icon.png';
+        }
+    }
     </script>
 
 </body>
