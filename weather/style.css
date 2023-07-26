@@ -268,11 +268,21 @@ sup {
   height: 100vh;
 }
 .desktop-notice .content {
-  max-width: 550px;
+  max-width: 750px;
+  display: flex;
+}
+.desktop-notice .icon {
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  vertical-align: middle;  
+}
+.desktop-notice .right {
+  padding-left: 50px;
 }
 .desktop-notice .content h1 {
   font-size: 4em;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 .desktop-notice .content p {
   font-size: 1.5em;
