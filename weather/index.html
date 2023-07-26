@@ -25,7 +25,13 @@
 
 <body style="background-color: #242328;">
 
-  <iframe src="toronto" id="frame">Your browser does not support iframes</iframe>
+  <iframe src="" id="iframe">Your browser does not support iframes</iframe>
+
+  <script type="text/javascript">
+    cityname = 'toronto';
+    if (location.hash) cityname = location.hash;
+    document.getElementById('iframe').src = cityname;
+    </script>
 
 </body>
 </html>
