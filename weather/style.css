@@ -28,7 +28,7 @@ iframe {
   display: block;
   background: #242328;
   border: none;
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
 }
 .wrapper {
@@ -152,7 +152,7 @@ sup {
   color: #fff;
   text-decoration: none;
 }
-.switcher a.active {
+.switcher a.active, .switcher a:active {
   background: linear-gradient(to bottom, #484e54, #43484d);
 }
 
