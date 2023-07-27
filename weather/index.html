@@ -25,14 +25,8 @@
 
 <body style="background-color: #242328;">
 
-  <iframe src="" id="iframe" onload="updateicon()">Your browser does not support iframes</iframe>
-
-  <script type="text/javascript">
-    cityname = 'toronto';
-    if (location.hash) cityname = location.hash.replace('#','');
-    document.getElementById('iframe').src = cityname;
-
-    function updateicon() {
+<script type="text/javascript">
+      function updateicon() {
         cityname = 'toronto';
         if (location.hash) cityname = location.hash.replace('#','');
         if (cityname == 'huntsville') {
@@ -43,6 +37,14 @@
             document.getElementById('icon').href = 'app-icon.png';
         }
     }
+</script>
+
+  <iframe src="" id="iframe" onload="updateicon()">Your browser does not support iframes</iframe>
+
+  <script type="text/javascript">
+    cityname = 'toronto';
+    if (location.hash) cityname = location.hash.replace('#','');
+    document.getElementById('iframe').src = cityname;
     </script>
 
 </body>
