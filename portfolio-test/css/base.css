@@ -325,3 +325,8 @@ a.frame__demo--current {
 		justify-self: start;
 	}
 }
+
+
+.slide:nth-child(even) {
+	filter: invert(1);
+}
