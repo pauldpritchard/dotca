@@ -95,7 +95,7 @@ export class Slideshow {
 		gsap
 		.timeline({
 			defaults: {
-				duration: 0.7, 
+				duration: 0.5, 
 				ease: 'power2.inOut'
 			},
 			onStart: () => {
@@ -119,7 +119,7 @@ export class Slideshow {
 		.to(currentInner, {
 			scale: 1.5
 		}, 'start')
-		.addLabel('middle', 'start+=0.65')
+		.addLabel('middle', 'start+=0.3')
 		.fromTo(upcomingSlide, {
 			yPercent: direction*100,
 			scale: 1
