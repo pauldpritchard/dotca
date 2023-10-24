@@ -52,7 +52,6 @@ body {
   height: 100vh;
   align-items: center;
   overflow: hidden;
-  animation: flip-vertical-out 2s forwards normal 4s;
 }
 
 
@@ -92,7 +91,7 @@ body {
     transform: rotateX(90deg);
   }
   100% {
-    transform: rotateX(0deg);
+    display: none;
   }
 }
 
@@ -109,6 +108,7 @@ body {
   justify-content: center;
   z-index: 15;
   perspective: 350px;
+  animation: flip-vertical-out 2s forwards normal 4s;
 }
 .loader .logo {
   mix-blend-mode: difference;
