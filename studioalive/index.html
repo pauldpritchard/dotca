@@ -45,6 +45,8 @@ body {
 	overflow: hidden;
   position: relative;
   margin: 0;
+  perspective: 350px;
+  transform-style: preserve-3d;
 }
 
 .intro {
@@ -52,6 +54,7 @@ body {
   height: 100vh;
   align-items: center;
   overflow: hidden;
+  animation: flip-vertical-out 2s forwards normal 4s;
 }
 
 
@@ -74,6 +77,21 @@ body {
   81% {
     transform: rotateX(-90deg);
     animation-timing-function: cubic-bezier(0, 0, 0, 1);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes flip-vertical-out {
+  60% {
+    transform: rotateX(0deg);
+  }
+  80% {
+    transform: rotateX(90deg);
+  }
+  81% {
+    display: none;
+    transform: rotateX(90deg);
   }
   100% {
     transform: rotateX(0deg);
