@@ -54,21 +54,36 @@ body {
 
 .header {
   height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .header .logo {
   width: 71vw;
+  mix-blend-mode: lighten;
 }
 
-#background-video {
+#background-video-portrait, #background-video-landscape {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
+  display: none;
   object-fit: cover;
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   z-index: -1;
+}
+@media screen and (orientation: landscape) {
+  #background-video-landscape {
+    dispay: block;
+  }
+}
+@media screen and (orientation: portrait) {
+  #background-video-portrait {
+    dispay: block;
+  }
 }
 
 /* ==ENDNEW======== */
@@ -164,7 +179,10 @@ body {
 
   <div class="header">
     <img src="logo.gif" class="logo" />
-    <video id="background-video" autoplay loop muted poster="">
+    <video id="background-video-portrait" autoplay loop muted poster="">
+      <source src="bg1-mobile.mp4" type="video/mp4">
+    </video>
+    <video id="background-video-landscape" autoplay loop muted poster="">
       <source src="bg1-desktop.mp4" type="video/mp4">
     </video>
   </div>
