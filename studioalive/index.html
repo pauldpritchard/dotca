@@ -60,7 +60,6 @@ body {
   width: 71vw;
   mix-blend-mode: lighten;
   margin-right: -4vw;
-  animation: flip-vertical 2s forwards infinite;
   transform-origin: 50% 60%;
   animation-timing-function: cubic-bezier(0, 0, 1, 0);
 }
@@ -108,9 +107,10 @@ body {
   justify-content: center;
   z-index: 15;
   perspective: 350px;
-  animation: flip-vertical-out 2s forwards normal 4s;
+  animation: flip-vertical-out 2s forwards normal 2.5s;
 }
 .loader .logo {
+  animation: flip-vertical 2s forwards infinite;
   mix-blend-mode: difference;
 }
 
