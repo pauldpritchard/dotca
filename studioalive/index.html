@@ -49,6 +49,30 @@ body {
   overflow: hidden;
 }
 
+
+/* ==NEW======== */
+
+.header {
+  height: 80vh;
+}
+.header .logo {
+  width: 71vw;
+}
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* ==ENDNEW======== */
+
    .theme-0 {
    	background-color: #000;
   color: #fff;
@@ -136,6 +160,15 @@ body {
   </head>
 
 <body class="theme-0">
+
+
+  <div class="header">
+    <img src="logo.gif" class="logo" />
+    <video id="background-video" autoplay loop muted poster="">
+      <source src="bg1-desktop.mp4" type="video/mp4">
+    </video>
+  </div>
+
   <div class="intro">
     <div class="text" onClick="addShake()">
       Creative design, <span>branding & </span>interactive<span> works. Built for </span>passion.
