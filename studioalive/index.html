@@ -56,22 +56,46 @@ body {
 
 
 /* ==NEW======== */
+.logo {
+  width: 71vw;
+  mix-blend-mode: lighten;
+  margin-right: -4vw;
+  animation: flip-vertical 2s forwards infinite;
+  transform-style: preserve-3d;
+}
+@keyframes flip-vertical {
+  75% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(90deg);
+  }
+}
+
+.loader {
+  position: fixed;
+  background: #fff;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 15;
+}
 
 .header {
-  height: 80vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 10;
 }
-.header .logo {
-  width: 71vw;
-  mix-blend-mode: lighten;
-  margin-right: -4vw;
-}
 @media screen and (orientation: landscape) {
-  .header .logo {
+  .logo {
     width: 35vw;
     margin-right: -2vw;
   }
@@ -79,7 +103,7 @@ body {
 
 #background-video-portrait, #background-video-landscape {
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   display: none;
   object-fit: cover;
   position: absolute;
@@ -99,6 +123,7 @@ body {
     display: block;
   }
 }
+
 
 /* ==ENDNEW======== */
 
@@ -191,6 +216,9 @@ body {
 <body class="theme-0">
 
 
+  <div class="loader">
+    <img src="logo.gif" class="logo" />
+  </div>
   <div class="header">
     <img src="logo.gif" class="logo" />
     <video id="background-video-portrait" autoplay loop muted poster="">
