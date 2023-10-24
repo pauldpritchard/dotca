@@ -64,11 +64,17 @@ body {
   transform-style: preserve-3d;
 }
 @keyframes flip-vertical {
-  75% {
-    transform: rotateY(0deg);
+  70% {
+    transform: rotateX(0deg);
+  }
+  85% {
+    transform: rotateX(90deg);
+  }
+  86% {
+    transform: rotateX(-90deg);
   }
   100% {
-    transform: rotateY(90deg);
+    transform: rotateX(0deg);
   }
 }
 
@@ -79,11 +85,15 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 15;
+}
+.loader .logo {
+  mix-blend-mode: difference;
 }
 
 .header {
