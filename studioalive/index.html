@@ -45,6 +45,7 @@ body {
 	overflow: hidden;
   position: relative;
   margin: 0;
+  perspective: 200px;
 }
 
 .intro {
@@ -62,16 +63,19 @@ body {
   margin-right: -4vw;
   animation: flip-vertical 2s forwards infinite;
   transform-style: preserve-3d;
+  transform-origin: 50% 60%;
+  animation-timing-function: cubic-bezier(0, 0, 1, 0);
 }
 @keyframes flip-vertical {
-  70% {
+  60% {
     transform: rotateX(0deg);
   }
-  85% {
+  80% {
     transform: rotateX(90deg);
   }
-  86% {
+  81% {
     transform: rotateX(-90deg);
+    animation-timing-function: cubic-bezier(0, 0, 0, 1);
   }
   100% {
     transform: rotateX(0deg);
