@@ -2,28 +2,8 @@
   <head>
 
     <title>Portfolio test</title>
-  <link rel="dns-prefetch" href="https://cdn.shopify.com">
-<link rel="preload" href="https://cdn.shopify.com/s/files/1/1551/2429/files/neuemachina-ultrabold-webfont.woff2?v=1695322648" as="font" type="font/woff2" crossorigin="anonymous">
- <link rel="preload" href="https://cdn.shopify.com/s/files/1/1551/2429/files/StyreneA-Bold-Web.woff2?v=1694118971" as="font" type="font/woff2" crossorigin="anonymous">
- <link rel="preload" href="https://cdn.shopify.com/s/files/1/1551/2429/files/sysfont.woff2?v=1695408873" as="font" type="font/woff2" crossorigin="anonymous">
     
  <style>
-    @font-face {
-  font-family: 'Neue Machina';
-  src: url(https://cdn.shopify.com/s/files/1/1551/2429/files/neuemachina-ultrabold-webfont.woff2?v=1695322648) format('woff2'),
-       url(https://cdn.shopify.com/s/files/1/1551/2429/files/StyreneA-Bold-Web.woff?v=1694118977) format('woff');
-  font-weight:  700;
-  font-style:   normal;
-  font-stretch: normal;
-}
-    @font-face {
-  font-family: 'Styrene A Web';
-  src: url(https://cdn.shopify.com/s/files/1/1551/2429/files/StyreneA-Bold-Web.woff2?v=1694118971) format('woff2'),
-       url(https://cdn.shopify.com/s/files/1/1551/2429/files/StyreneA-Bold-Web.woff?v=1694118977) format('woff');
-  font-weight:  700;
-  font-style:   normal;
-  font-stretch: normal;
-}
     @font-face {
   font-family: 'Sysfont';
   src: url(https://cdn.shopify.com/s/files/1/1551/2429/files/sysfont.woff2?v=1695408873) format('woff2'),
@@ -33,17 +13,13 @@
   font-stretch: normal;
 }
 
-html {
-  width: 100vw;
-  overflow: hidden;
-}   
-
 body {
-  width: 100vw;
-	overflow: hidden;
-  position: relative;
   margin: 0;
+  padding: 0;
   background: #06050a;
+  font-family: system-ui;
+  font-weight: 300;
+  color: #fff;
 }
 
 .intro {
@@ -239,7 +215,7 @@ body {
 @media screen and (orientation: portrait) {
   .text {
     font-size: 114px;
-    padding: 8.5vw;
+    padding: 12vw 8.5vw;
   }
   .grid {
     width: auto;
@@ -270,80 +246,6 @@ body {
 
 /* ==ENDNEW======== */
 
-   .theme-0 {
-   	background-color: #000;
-  color: #fff;
-/*    font-family: 'Neue Machina';*/
-font-family: system-ui;
-font-weight: 300;
-   }
-
-.theme-1 {
-  background: #fff;
-  color: #000;
-    font-family: 'Styrene A Web';
-  text-transform: uppercase;
-  font-size: 105px;
-  letter-spacing: -0.05em;
-}
-   .theme-1 #bouncey {
-     filter: hue-rotate(62deg);
-   }
-    .theme-2 {
-    font-family: 'Sysfont';
-      background: #011efe;
-      color: #fff;
-      font-size: 123px;
-      line-height: 0.95em;
-      letter-spacing: -0.01em;
-    }
-   .theme-2 #bouncey {
-     filter: invert(1) brightness(0.7) contrast(15);
-   }
-
-   .theme-transitioning {
-     animation: theme-intro .3s steps(1, end) forwards;
-   }
-    @keyframes theme-intro {
-  0% {
-    opacity: 0;
-}
-20% {
-    opacity: 1;
-}
-40% {
-    opacity: 0;
-}
-60% {
-    opacity: 1;
-}
-80% {
-    opacity: 0;
-}
-100% {
-    opacity: 1;
-}
-}
-   
-#bouncey {
-	position: absolute;
-  left: calc(50vw - 15vw);
-  top: calc(50vh - 15vw);
-	width: 15vw;
-	height: 15vw;
-}  
-  #bouncey-img {
-	width: 15vw;
-	height: 15vw;
-      animation: spin 4s infinite linear;
-  }
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg);}
-  }
-
-    
-
   .text {
     padding: 7vw;
     font-size: 120px;
@@ -366,7 +268,7 @@ font-weight: 300;
     }
     @media screen and (orientation: portrait) {
       hr {
-        margin: 8.5vw 0;
+        margin: 12vw 0;
         background-image:url(divider-mobile.gif);
       }
     }
@@ -377,12 +279,6 @@ font-weight: 300;
       margin-bottom: 0;
     }
 
-    .wrapper {
-      position: absolute;
-    height: 100dvh;
-    width: 100dvw;
-    overflow-y: scroll;
-    }
 
   
 </style>
@@ -390,10 +286,6 @@ font-weight: 300;
   </head>
 
 <body class="theme-0">
-
-    <div id="bouncey"><img src="https://cdn.shopify.com/s/files/1/1551/2429/files/smiley.png?v=1695321972" id="bouncey-img" /></div>
-
-<div class="wrapper">
 
   <div class="loader">
     <img src="logo.gif" class="logo" />
@@ -409,10 +301,9 @@ font-weight: 300;
   </div>
 
   <div class="intro">
-    <div class="text" onClick="addShake()">
+    <div class="text">
       we bring brands to life with innovative design that converts
       <hr />
-      <div id="status"></div>
     </div>
   </div>
 
@@ -440,129 +331,5 @@ font-weight: 300;
 
 
 
-    <script type="text/javascript">
-  const body = document.querySelector('body')
-const label = document.querySelector('#bouncey')
-const label_anim = document.querySelector('#bouncey-img')
-
-let colors = [ '#26de81', '#fc5c65', '#fd9644', '#fed330', '#2bcbba', '#45aaf2', '#4b7bec', '#a55eea', '#ffc1f3', '#76ead7', '#ff9c71', '#32e0c4', '#d291bc', '#fa744f' ]
-
-let FPS = 60
-
-let width
-  , height
-  , velocityX = 5
-  , velocityY = 5
-  , half_width = (label.getBoundingClientRect().width / 2)
-  , half_height = (label.getBoundingClientRect().height / 2)
-  , pause = true
-  , previousColor = 0
-;
-
-setInterval(() => {
-	if (pause) return;
-
-	let rect = label.getBoundingClientRect()
-
-	let left = rect.x
-	let top = rect.y
-
-	if (left + rect.width >= width || left <= 0) {
-		velocityX = -velocityX
-      label_anim.style.animationDuration = Math.floor(Math.random() * 4 + 1) + 's';
-      if (label_anim.style.animationDirection == 'normal') 
-        label_anim.style.animationDirection = 'reverse'
-      else
-        label_anim.style.animationDirection = 'normal'
-	}
-	if (top + rect.height >= height || top <= 0) {
-		velocityY = -velocityY
-      label_anim.style.animationDuration = Math.floor(Math.random() * 4 + 1) + 's';
-      if (label_anim.style.animationDirection == 'normal') 
-        label_anim.style.animationDirection = 'reverse'
-      else
-        label_anim.style.animationDirection = 'normal'
-	}
-
-	label.style.left = rect.x + velocityX + 'px'
-	label.style.top = rect.y + velocityY + 'px'
-}, 1000 / FPS)
-
-
-const reset = () => {
-	width =
-		window.innerWidth ||
-		document.documentElement.clientWidth ||
-		document.body.clientWidth
-  ;
-
-	height =
-		window.innerHeight ||
-		document.documentElement.clientHeight ||
-		document.body.clientHeight
-  ;
-
-	pause =
-		width <= label.getBoundingClientRect().width ||
-		height <= label.getBoundingClientRect().height
-  ;
-
-	label.style.left = 'calc(50vw - ' + half_width + 'px)'
-	label.style.top = 'calc(50vh - ' + half_height + 'px)'
-	label.style.stroke = colors[0]
-}
-
-
-reset()
-
-window.addEventListener('resize', reset, true)
-
-/* ----------------------------------------------- */
-
-function addShake() {
-    // feature detect
-    if (typeof DeviceMotionEvent.requestPermission === 'function') {
-      DeviceMotionEvent.requestPermission()
-        .then(permissionState => {
-          if (permissionState === 'granted') {
-            window.addEventListener ("devicemotion", detectShake);
-          }
-        })
-        .catch(console.error);
-    } else {
-      // handle regular non iOS 13+ devices
-    }
-  }
-      
-function detectShake(evt) {
-  var status = document.getElementById("status");
-  var accl = evt.acceleration;
-  if (accl.z > 10) {
-    randomizeTheme();
-  }
-}
-
-var current_theme = 0;
-var theme_switchable = true;
-
-function randomizeTheme() {
-  if (!theme_switchable)
-    return false;
-  
-  if (current_theme < 2)
-    current_theme++;
-  else
-    current_theme = 0;
-  body.className = "theme-" + current_theme + " theme-transitioning";
-  theme_switchable = false;
-  reset();
-  window.setTimeout(function() {
-    theme_switchable = true;
-    body.classList.remove("theme-transitioning");
-  }, 1000);
-  
-}
-      
-</script>
 </body>
   </html>

@@ -1,0 +1,568 @@
+<html>
+  <head>
+
+    <title>Portfolio test</title>
+  <link rel="dns-prefetch" href="https://cdn.shopify.com">
+<link rel="preload" href="https://cdn.shopify.com/s/files/1/1551/2429/files/neuemachina-ultrabold-webfont.woff2?v=1695322648" as="font" type="font/woff2" crossorigin="anonymous">
+ <link rel="preload" href="https://cdn.shopify.com/s/files/1/1551/2429/files/StyreneA-Bold-Web.woff2?v=1694118971" as="font" type="font/woff2" crossorigin="anonymous">
+ <link rel="preload" href="https://cdn.shopify.com/s/files/1/1551/2429/files/sysfont.woff2?v=1695408873" as="font" type="font/woff2" crossorigin="anonymous">
+    
+ <style>
+    @font-face {
+  font-family: 'Neue Machina';
+  src: url(https://cdn.shopify.com/s/files/1/1551/2429/files/neuemachina-ultrabold-webfont.woff2?v=1695322648) format('woff2'),
+       url(https://cdn.shopify.com/s/files/1/1551/2429/files/StyreneA-Bold-Web.woff?v=1694118977) format('woff');
+  font-weight:  700;
+  font-style:   normal;
+  font-stretch: normal;
+}
+    @font-face {
+  font-family: 'Styrene A Web';
+  src: url(https://cdn.shopify.com/s/files/1/1551/2429/files/StyreneA-Bold-Web.woff2?v=1694118971) format('woff2'),
+       url(https://cdn.shopify.com/s/files/1/1551/2429/files/StyreneA-Bold-Web.woff?v=1694118977) format('woff');
+  font-weight:  700;
+  font-style:   normal;
+  font-stretch: normal;
+}
+    @font-face {
+  font-family: 'Sysfont';
+  src: url(https://cdn.shopify.com/s/files/1/1551/2429/files/sysfont.woff2?v=1695408873) format('woff2'),
+       url(https://cdn.shopify.com/s/files/1/1551/2429/files/sysfont.woff?v=1695408873) format('woff');
+  font-weight:  700;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+html {
+  width: 100vw;
+  overflow: hidden;
+}   
+
+body {
+  width: 100vw;
+	overflow: hidden;
+  position: relative;
+  margin: 0;
+  background: #06050a;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+/* ==NEW======== */
+.logo {
+  width: 71vw;
+  mix-blend-mode: lighten;
+  margin-right: -4vw;
+}
+@keyframes flip-vertical {
+  0% {
+    transform: rotateX(-90deg);
+    animation-timing-function: cubic-bezier(0.29, 0.28, 0.32, 1);
+  }
+  50% {
+    transform: rotateX(0deg);
+  }
+  75% {
+    transform: rotateX(0deg);
+    animation-timing-function: cubic-bezier(0.47, 0.48, 1, 0.33);
+  }
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+@keyframes flip-vertical-out {
+  75% {
+    transform: rotateX(0deg);
+    animation-timing-function: cubic-bezier(0.47, 0.48, 1, 0.33);
+  }
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+@keyframes flip-vertical-in {
+  0% {
+    transform: rotateX(-90deg);
+    animation-timing-function: cubic-bezier(0.29, 0.28, 0.32, 1);
+  }
+  50% {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes fade-in-shrink {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1);
+    height: 100dvh;
+    animation-timing-function: cubic-bezier(0.36, 0, 0.11, 0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    height: 87dvh;
+  }
+}
+@keyframes shrink {
+  0% {
+    height: 100dvh;
+  }
+  75% {
+        height: 100dvh;
+    animation-timing-function: cubic-bezier(0.36, 0, 0.11, 0.99);
+  }
+  100% {
+    height: 87dvh;
+  }
+}
+
+
+.loader {
+  position: fixed;
+  background: #fff;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  perspective: 350px;
+  animation: flip-vertical-out 1.3s forwards normal 1.3s;
+}
+.loader .logo {
+  animation: flip-vertical 1.3s forwards infinite;
+  mix-blend-mode: difference;
+}
+
+.header {
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  perspective: 350px;
+  z-index: 10;
+  background: #06050a;
+  animation: shrink 3s forwards normal 1.4s cubic-bezier(0.25, 0.33, 0.11, 0.99);
+}
+.header video {
+  opacity: 0;
+  animation: fade-in-shrink 3s forwards normal 1.4s cubic-bezier(0.25, 0.33, 0.11, 0.99);
+}
+.header .logo {
+  animation: flip-vertical-in 1.3s forwards normal 2.6s;
+}
+@media screen and (orientation: landscape) {
+  .logo {
+    width: 35vw;
+    margin-right: -2vw;
+  }
+}
+
+#background-video-portrait, #background-video-landscape {
+  width: 100vw;
+  height: 100dvh;
+  display: none;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+@media screen and (orientation: landscape) {
+  #background-video-landscape {
+    display: block;
+  }
+}
+@media screen and (orientation: portrait) {
+  #background-video-portrait {
+    display: block;
+  }
+}
+
+
+/* Grid  */
+.grid {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  gap: 7vw;
+  margin: 0 auto;
+}
+.grid img {
+  display: block;
+  width: 100%;
+}
+.grid .row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  align-self: center;
+  gap: 7vw;
+  width: 75%;
+}
+.grid .row .align-top {
+  align-items: flex-start;
+}
+.grid .item {
+
+}
+.mobile-small {
+  width: 45%;
+}
+.mobile-large {
+  width: 55%;
+}
+.desktop {
+  width: 88%;
+  align-self: center;
+}
+.offset-up {
+  padding-bottom: 7vw;
+}
+.offset-down {
+  padding-top: 7vw;
+}
+
+@media screen and (orientation: portrait) {
+  .text {
+    font-size: 114px;
+    padding: 8.5vw;
+  }
+  .grid {
+    width: auto;
+    gap: 12vw;
+  }
+  .grid .row {
+    width: 76vw;
+    gap: 12vw;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .grid .row .item:first-child {
+    align-self: flex-end;
+  }
+  .mobile-small, .mobile-large {
+    width: 74%;
+  }
+  .desktop {
+    width: 100%;
+  }
+  .offset-up {
+    padding-bottom: 0;
+  }
+  .offset-down {
+    padding-top: 0;
+  }
+}
+
+/* ==ENDNEW======== */
+
+   .theme-0 {
+   	background-color: #000;
+  color: #fff;
+/*    font-family: 'Neue Machina';*/
+font-family: system-ui;
+font-weight: 300;
+   }
+
+.theme-1 {
+  background: #fff;
+  color: #000;
+    font-family: 'Styrene A Web';
+  text-transform: uppercase;
+  font-size: 105px;
+  letter-spacing: -0.05em;
+}
+   .theme-1 #bouncey {
+     filter: hue-rotate(62deg);
+   }
+    .theme-2 {
+    font-family: 'Sysfont';
+      background: #011efe;
+      color: #fff;
+      font-size: 123px;
+      line-height: 0.95em;
+      letter-spacing: -0.01em;
+    }
+   .theme-2 #bouncey {
+     filter: invert(1) brightness(0.7) contrast(15);
+   }
+
+   .theme-transitioning {
+     animation: theme-intro .3s steps(1, end) forwards;
+   }
+    @keyframes theme-intro {
+  0% {
+    opacity: 0;
+}
+20% {
+    opacity: 1;
+}
+40% {
+    opacity: 0;
+}
+60% {
+    opacity: 1;
+}
+80% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+   
+#bouncey {
+	position: absolute;
+  left: calc(50vw - 15vw);
+  top: calc(50vh - 15vw);
+	width: 15vw;
+	height: 15vw;
+}  
+  #bouncey-img {
+	width: 15vw;
+	height: 15vw;
+      animation: spin 4s infinite linear;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg);}
+  }
+
+    
+
+  .text {
+    padding: 7vw;
+    font-size: 120px;
+    line-height: 0.95em;
+  }
+    .text span {
+      position: relative;
+      z-index: 5;
+    }
+
+    hr {
+      display:block;
+      border:0px;
+      width: 100%;
+      height: 55px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: 7vw 0;
+      background-image:url(divider-desktop.gif);
+    }
+    @media screen and (orientation: portrait) {
+      hr {
+        margin: 8.5vw 0;
+        background-image:url(divider-mobile.gif);
+      }
+    }
+    .footer hr {
+      margin-top: 0;
+    }
+    .intro hr {
+      margin-bottom: 0;
+    }
+
+    .wrapper {
+      position: absolute;
+    height: 100dvh;
+    width: 100dvw;
+    overflow-y: scroll;
+    }
+
+  
+</style>
+
+  </head>
+
+<body class="theme-0">
+
+    <div id="bouncey"><img src="https://cdn.shopify.com/s/files/1/1551/2429/files/smiley.png?v=1695321972" id="bouncey-img" /></div>
+
+<div class="wrapper">
+
+  <div class="loader">
+    <img src="logo.gif" class="logo" />
+  </div>
+  <div class="header">
+    <img src="logo.gif" class="logo" />
+    <video id="background-video-portrait" autoplay loop defaultMuted playsinline muted poster="">
+      <source src="bg2-short.mp4" type="video/mp4">
+    </video>
+    <video id="background-video-landscape" autoplay loop defaultMuted playsinline muted poster="">
+      <source src="bg1-desktop.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="intro">
+    <div class="text" onClick="addShake()">
+      we bring brands to life with innovative design that converts
+      <hr />
+      <div id="status"></div>
+    </div>
+  </div>
+
+
+  <div class="grid">
+    <div class="row">
+      <div class="item mobile-small"><img src="work/drop-blue-mobile.jpg" /></div>
+      <div class="item mobile-large offset-up"><img src="work/streamline-luxe-mobile.jpg" /></div>
+    </div>
+    <div class="item desktop"><img src="work/streamline-hype-desktop.jpg" /></div>
+    <div class="row align-top">
+      <div class="item mobile-large"><img src="work/drop-blue-mobile.jpg" /></div>
+      <div class="item mobile-small offset-down"><img src="work/streamline-luxe-mobile.jpg" /></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="text">
+      <hr />
+      books open<br />for 2024
+    </div>
+  </div>
+
+</div>
+
+
+
+    <script type="text/javascript">
+  const body = document.querySelector('body')
+const label = document.querySelector('#bouncey')
+const label_anim = document.querySelector('#bouncey-img')
+
+let colors = [ '#26de81', '#fc5c65', '#fd9644', '#fed330', '#2bcbba', '#45aaf2', '#4b7bec', '#a55eea', '#ffc1f3', '#76ead7', '#ff9c71', '#32e0c4', '#d291bc', '#fa744f' ]
+
+let FPS = 60
+
+let width
+  , height
+  , velocityX = 5
+  , velocityY = 5
+  , half_width = (label.getBoundingClientRect().width / 2)
+  , half_height = (label.getBoundingClientRect().height / 2)
+  , pause = true
+  , previousColor = 0
+;
+
+setInterval(() => {
+	if (pause) return;
+
+	let rect = label.getBoundingClientRect()
+
+	let left = rect.x
+	let top = rect.y
+
+	if (left + rect.width >= width || left <= 0) {
+		velocityX = -velocityX
+      label_anim.style.animationDuration = Math.floor(Math.random() * 4 + 1) + 's';
+      if (label_anim.style.animationDirection == 'normal') 
+        label_anim.style.animationDirection = 'reverse'
+      else
+        label_anim.style.animationDirection = 'normal'
+	}
+	if (top + rect.height >= height || top <= 0) {
+		velocityY = -velocityY
+      label_anim.style.animationDuration = Math.floor(Math.random() * 4 + 1) + 's';
+      if (label_anim.style.animationDirection == 'normal') 
+        label_anim.style.animationDirection = 'reverse'
+      else
+        label_anim.style.animationDirection = 'normal'
+	}
+
+	label.style.left = rect.x + velocityX + 'px'
+	label.style.top = rect.y + velocityY + 'px'
+}, 1000 / FPS)
+
+
+const reset = () => {
+	width =
+		window.innerWidth ||
+		document.documentElement.clientWidth ||
+		document.body.clientWidth
+  ;
+
+	height =
+		window.innerHeight ||
+		document.documentElement.clientHeight ||
+		document.body.clientHeight
+  ;
+
+	pause =
+		width <= label.getBoundingClientRect().width ||
+		height <= label.getBoundingClientRect().height
+  ;
+
+	label.style.left = 'calc(50vw - ' + half_width + 'px)'
+	label.style.top = 'calc(50vh - ' + half_height + 'px)'
+	label.style.stroke = colors[0]
+}
+
+
+reset()
+
+window.addEventListener('resize', reset, true)
+
+/* ----------------------------------------------- */
+
+function addShake() {
+    // feature detect
+    if (typeof DeviceMotionEvent.requestPermission === 'function') {
+      DeviceMotionEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            window.addEventListener ("devicemotion", detectShake);
+          }
+        })
+        .catch(console.error);
+    } else {
+      // handle regular non iOS 13+ devices
+    }
+  }
+      
+function detectShake(evt) {
+  var status = document.getElementById("status");
+  var accl = evt.acceleration;
+  if (accl.z > 10) {
+    randomizeTheme();
+  }
+}
+
+var current_theme = 0;
+var theme_switchable = true;
+
+function randomizeTheme() {
+  if (!theme_switchable)
+    return false;
+  
+  if (current_theme < 2)
+    current_theme++;
+  else
+    current_theme = 0;
+  body.className = "theme-" + current_theme + " theme-transitioning";
+  theme_switchable = false;
+  reset();
+  window.setTimeout(function() {
+    theme_switchable = true;
+    body.classList.remove("theme-transitioning");
+  }, 1000);
+  
+}
+      
+</script>
+</body>
+  </html>
