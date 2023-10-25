@@ -45,6 +45,7 @@ body {
 	overflow: hidden;
   position: relative;
   margin: 0;
+  background: #06050a;
 }
 
 .intro {
@@ -95,6 +96,14 @@ body {
     transform: rotateX(0deg);
   }
 }
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .loader {
   position: fixed;
@@ -124,6 +133,9 @@ body {
   position: relative;
   perspective: 350px;
   z-index: 10;
+}
+.header video {
+  animation: fade-in 0.65s forwards normal 2.6s ease;
 }
 .header .logo {
   animation: flip-vertical-in 1.3s forwards normal 2.6s;
