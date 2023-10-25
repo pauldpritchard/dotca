@@ -377,6 +377,13 @@ font-weight: 300;
       margin-bottom: 0;
     }
 
+    #wrapper {
+      position: absolute;
+    height: 100dvh;
+    width: 100dvw;
+    overflow-y: scroll;
+    }
+
   
 </style>
 
@@ -384,6 +391,9 @@ font-weight: 300;
 
 <body class="theme-0">
 
+    <div id="bouncey"><img src="https://cdn.shopify.com/s/files/1/1551/2429/files/smiley.png?v=1695321972" id="bouncey-img" /></div>
+
+<div class="wrapper">
 
   <div class="loader">
     <img src="logo.gif" class="logo" />
@@ -391,7 +401,7 @@ font-weight: 300;
   <div class="header">
     <img src="logo.gif" class="logo" />
     <video id="background-video-portrait" autoplay loop defaultMuted playsinline muted poster="">
-      <source src="bg2.mp4" type="video/mp4">
+      <source src="bg2-short.mp4" type="video/mp4">
     </video>
     <video id="background-video-landscape" autoplay loop defaultMuted playsinline muted poster="">
       <source src="bg1-desktop.mp4" type="video/mp4">
@@ -404,7 +414,6 @@ font-weight: 300;
       <hr />
       <div id="status"></div>
     </div>
-    <div id="bouncey"><img src="https://cdn.shopify.com/s/files/1/1551/2429/files/smiley.png?v=1695321972" id="bouncey-img" /></div>
   </div>
 
 
@@ -427,7 +436,8 @@ font-weight: 300;
     </div>
   </div>
 
-</svg>
+</div>
+
 
 
     <script type="text/javascript">
