@@ -99,9 +99,11 @@ body {
 @keyframes fade-in {
   0% {
     opacity: 0;
+    transform: scale(1.1);
   }
   100% {
     opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -136,7 +138,7 @@ body {
 }
 .header video {
   opacity: 0;
-  animation: fade-in 1.6s forwards normal 2.25s ease;
+  animation: fade-in 1.3s forwards normal 2.6s ease;
 }
 .header .logo {
   animation: flip-vertical-in 1.3s forwards normal 2.6s;
