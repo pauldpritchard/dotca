@@ -238,6 +238,7 @@ body {
 
 @media screen and (orientation: portrait) {
   .text {
+    font-size: 114px;
     padding: 8.5vw;
   }
   .grid {
@@ -357,6 +358,9 @@ font-weight: 300;
       display:block;
       border:0px;
       width: 100%;
+      height: 55px;
+      background-repeat: no-repeat;
+      background-size: contain;
       margin: 7vw 0;
       background-image:url(divider-desktop.gif);
     }
@@ -365,6 +369,12 @@ font-weight: 300;
         margin: 8.5vw 0;
         background-image:url(divider-mobile.gif);
       }
+    }
+    .footer hr {
+      margin-top: 0;
+    }
+    .intro hr {
+      margin-bottom: 0;
     }
 
   
@@ -411,8 +421,8 @@ font-weight: 300;
   </div>
 
   <div class="footer">
-    <hr />
     <div class="text">
+      <hr />
       books open<br />for 2024
     </div>
   </div>
