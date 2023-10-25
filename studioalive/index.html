@@ -86,6 +86,15 @@ body {
     transform: rotateX(90deg);
   }
 }
+@keyframes flip-vertical-in {
+  0% {
+    transform: rotateX(-90deg);
+    animation-timing-function: cubic-bezier(0.29, 0.28, 0.32, 1);
+  }
+  50% {
+    transform: rotateX(0deg);
+  }
+}
 
 .loader {
   position: fixed;
@@ -115,6 +124,9 @@ body {
   position: relative;
   perspective: 350px;
   z-index: 10;
+}
+.header .logo {
+  animation: flip-vertical-in 1.3s forwards normal 2.6s;
 }
 @media screen and (orientation: landscape) {
   .logo {
