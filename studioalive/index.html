@@ -247,7 +247,7 @@ body {
   .grid .row {
     width: 76vw;
     gap: 12vw;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
   }
   .grid .row .item:first-child {
@@ -352,6 +352,19 @@ font-weight: 300;
       position: relative;
       z-index: 5;
     }
+
+    hr {
+      display:block;
+      border:0px;
+      width: 100%;
+      background-image:url(divider-desktop.gif);
+    }
+    @media screen and (orientation: portrait) {
+      hr {
+        background-image:url(divider-mobile.gif);
+      }
+    }
+
   
 </style>
 
@@ -375,7 +388,8 @@ font-weight: 300;
 
   <div class="intro">
     <div class="text" onClick="addShake()">
-      we <span>bring</span> brands to <span>life<br /> with</span> innovative <span>design</span><br /> that converts _
+      we bring brands to life with innovative design that converts
+      <hr />
       <div id="status"></div>
     </div>
     <div id="bouncey"><img src="https://cdn.shopify.com/s/files/1/1551/2429/files/smiley.png?v=1695321972" id="bouncey-img" /></div>
@@ -395,8 +409,9 @@ font-weight: 300;
   </div>
 
   <div class="footer">
+    <hr />
     <div class="text">
-      books open for 2024
+      books open<br />for 2024
     </div>
   </div>
 
