@@ -242,17 +242,28 @@ body {
   }
   .grid {
     width: auto;
-    gap: 8.5vw;
+    gap: 12vw;
   }
   .grid .row {
-    width: 83vw;
-    gap: 8.5vw;
+    width: 76vw;
+    gap: 12vw;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .grid .row .item:first-child {
+    align-self: flex-end;
   }
   .mobile-small, .mobile-large {
-    width: 59%;
+    width: 74%;
   }
   .desktop {
     width: 100%;
+  }
+  .offset-up {
+    padding-bottom: 0;
+  }
+  .offset-down {
+    padding-top: 0;
   }
 }
 
