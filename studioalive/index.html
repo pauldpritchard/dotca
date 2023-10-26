@@ -1,394 +1,20 @@
 <html class="js" lang="en" dir="ltr">
-  <head>
 
-    <title>Portfolio test</title>
-    
- <style>
-    @font-face {
-  font-family: 'Font';
-  src: url(font.woff2) format('woff2'),
-       url(font.woff) format('woff');
-  font-weight:  500;
-  font-style:   normal;
-  font-stretch: normal;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background: #06050a;
-  font-family: 'Font';
-  /*line-height: 0.95em;
-  letter-spacing: -0.03em;*/
-  line-height: 6em;
-  letter-spacing: -0.2em;
-  color: #fff;
-  overflow-x: hidden;
-}
-
-.intro {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-
-/* ==NEW======== */
-.logo {
-  width: 71vw;
-  mix-blend-mode: lighten;
-  margin-right: -4vw;
-}
-@keyframes flip-vertical {
-  0% {
-    transform: rotateX(-90deg);
-    animation-timing-function: cubic-bezier(0.29, 0.28, 0.32, 1);
-  }
-  50% {
-    transform: rotateX(0deg);
-  }
-  75% {
-    transform: rotateX(0deg);
-    animation-timing-function: cubic-bezier(0.47, 0.48, 1, 0.33);
-  }
-  100% {
-    transform: rotateX(90deg);
-  }
-}
-@keyframes flip-vertical-out {
-  75% {
-    transform: rotateX(0deg);
-    animation-timing-function: cubic-bezier(0.47, 0.48, 1, 0.33);
-  }
-  100% {
-    transform: rotateX(90deg);
-  }
-}
-@keyframes flip-vertical-in {
-  0% {
-    transform: rotateX(-90deg);
-    animation-timing-function: cubic-bezier(0.29, 0.28, 0.32, 1);
-  }
-  50% {
-    transform: rotateX(0deg);
-  }
-}
-
-
-:root {
-    --shrink-to: 72dvh
-}
-@media screen and (orientation: portrait) {
-    :root {
-        --shrink-to: 54dvh
-    }
-}
-
-
-@keyframes fade-in-shrink {
-  0% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-  75% {
-    opacity: 1;
-    transform: scale(1);
-    height: 100dvh;
-    animation-timing-function: cubic-bezier(0.36, 0, 0.11, 0.99);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    height: var(--shrink-to);
-  }
-}
-@keyframes shrink {
-  0% {
-    height: 100dvh;
-  }
-  75% {
-        height: 100dvh;
-    animation-timing-function: cubic-bezier(0.36, 0, 0.11, 0.99);
-  }
-  100% {
-    height: var(--shrink-to);
-  }
-}
-
-
-.loader {
-  position: fixed;
-  background: #fff;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 100dvh;
-  display: flex;
-/*  display: none !important;*/
-  align-items: center;
-  justify-content: center;
-  z-index: 15;
-  perspective: 350px;
-  animation: flip-vertical-out 1.3s forwards normal 1.3s;
-}
-.loader .logo {
-  animation: flip-vertical 1.3s forwards infinite;
-  mix-blend-mode: difference;
-}
-
-.header {
-  height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  perspective: 350px;
-  z-index: 10;
-  background: #06050a;
-  overflow: hidden;
-  animation: shrink 3s forwards normal 1.4s cubic-bezier(0.25, 0.33, 0.11, 0.99);
-}
-.header video {
-  opacity: 0;
-  animation: fade-in-shrink 3s forwards normal 1.4s cubic-bezier(0.25, 0.33, 0.11, 0.99);
-}
-.header .logo {
-  animation: flip-vertical-in 1.3s forwards normal 2.6s;
-}
-@media screen and (orientation: landscape) {
-  .logo {
-    width: 35vw;
-    margin-right: -2vw;
-  }
-}
-
-#background-video-portrait, #background-video-landscape {
-  width: 100vw;
-  height: 100dvh;
-  display: none;
-  object-fit: cover;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-}
-@media screen and (orientation: landscape) {
-  #background-video-landscape {
-    display: block;
-  }
-}
-@media screen and (orientation: portrait) {
-  #background-video-portrait {
-    display: block;
-  }
-}
-
-
-/* Grid  */
-.grid {
-  display: flex;
-  flex-direction: column;
-  width: 80vw;
-  gap: 7vw;
-  margin: 0 auto;
-}
-.grid img, .grid video {
-  display: block;
-  width: 100%;
-}
-.grid .row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  align-self: center;
-  gap: 7vw;
-  width: 75%;
-}
-.grid .row .align-top {
-  align-items: flex-start;
-}
-.grid .item {
-
-}
-.mobile-small {
-  width: 45%;
-}
-.mobile-large {
-  width: 55%;
-}
-.desktop {
-  width: 88%;
-  align-self: center;
-}
-.medium {
-  width: 66%;
-  margin-left: 5vw;
-}
-.offset-up {
-  padding-bottom: 7vw;
-}
-.offset-down {
-  padding-top: 7vw;
-}
-.offset-right {
-  padding-right: 5vw;
-  align-self: flex-end;
-}
-
-@media screen and (orientation: portrait) {
-  .mobile-first {
-    order: -1;
-  }
-}
-
-@media screen and (orientation: portrait) {
-  .text {
-    font-size: 114px;
-    padding: 12vw 8.5vw;
-  }
-  .grid {
-    width: auto;
-    gap: 12vw;
-  }
-  .grid .row {
-    width: 80vw;
-    gap: 12vw;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .grid .row .item:first-child {
-    align-self: flex-end;
-  }
-  .mobile-small, .mobile-large {
-    width: 86%;
-  }
-  .desktop {
-    width: 100%;
-  }
-  .medium {
-    width: 88%;
-    margin-left: 0;
-  }
-  .offset-up {
-    padding-bottom: 0;
-  }
-  .offset-down {
-    padding-top: 0;
-  }
-  .offset-right {
-    padding-right: 0;
-    align-self: flex-end;
-  }
-}
-
-/* ==ENDNEW======== */
-
-  .text {
-    padding: 7vw;
-    font-size: 103px;
-  }
-    .text span {
-      position: relative;
-      z-index: 5;
-    }
-
-    hr {
-      display:block;
-      border:0px;
-      width: 100%;
-      height: 55px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      margin: 7vw 0;
-      background-image:url(divider-desktop.gif);
-    }
-    @media screen and (orientation: portrait) {
-      hr {
-        margin: 12vw 0;
-        background-image:url(divider-mobile.gif);
-      }
-    }
-    .intro .text {
-      padding-bottom: 0;
-    }
-    .footer .text {
-      padding-top: 0;
-    }
-
-    .amoeba {
-      display: block;
-      position: relative;
-      width: 26px;
-      z-index: 5;
-    }
-
-
-    /* ==== OBSIDIAN LOGO ==== */
-
-    .obsidian-branding {
-  background: #000;
-  width: 100%;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 0 0 1px #fff;
-}
-.obsidian-branding .obsidian-background {
-  position: absolute;
-  background: #000;
-  display: block;
-  width: 100%;
-}
-.obsidian-branding #canvas {
-    background: #000;
-    width: 100%;
-    height: 400px;
-    display: block;
-  }
-.obsidian-branding .obsidian-logo {
-  width: 204px;
-  background: #000;
-  z-index: 1;
-}
-.obsidian-branding .obsidian-logo img {
-  width: 100%;
-  display: block;
-}  
-@media screen and (orientation: portrait) {
-  .obsidian-branding {
-    box-shadow: 0 0 0 3px #fff;
-  }
-  .obsidian-branding, .obsidian-branding #canvas {
-    height: 600px;
-  }
-  .obsidian-branding .obsidian-logo {
-    width: 400px;
-  }
-}
-
-
-  
-</style>
-
-  </head>
+<head>
+  <title>Studio Alive &emdash; Toronto's creative agency</title>
+  <link rel="stylesheet" type="text/css" media="screen, projection" href="styles.css" />
+</head>
 
 <body class="theme-0">
+
+  <!-- ============= LOADER ============== -->
 
   <div class="loader">
     <img src="logo.gif" class="logo" />
   </div>
+
+  <!-- ============= HEADER ============== -->
+
   <div class="header">
     <img src="logo.gif" class="logo" />
     <video id="background-video-portrait" autoplay loop defaultMuted playsinline muted poster="">
@@ -399,6 +25,8 @@ body {
     </video>
   </div>
 
+  <!-- ============= INTRO ============== -->
+
   <div class="intro">
     <div class="text">
       we bring brands to life with innovative designs that convert.
@@ -406,6 +34,7 @@ body {
     </div>
   </div>
 
+  <!-- ============= OUR WORK ============== -->
 
   <div class="grid">
 
@@ -477,6 +106,8 @@ body {
 
   </div>
 
+  <!-- ============= FOOTER ============== -->
+
   <div class="footer">
     <div class="text">
       <hr />
@@ -484,9 +115,6 @@ body {
     </div>
   </div>
 
-</div>
-
-
-
 </body>
-  </html>
+
+</html>
