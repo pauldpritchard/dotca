@@ -336,12 +336,14 @@ body {
     .obsidian-branding {
   background: #000;
   width: 100%;
-  height: 600px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
   z-index: 1;
+  border: 1px solid #fff;
 }
 .obsidian-branding .obsidian-background {
   position: absolute;
@@ -352,11 +354,12 @@ body {
 .obsidian-branding #canvas {
     background: #000;
     width: 100%;
-    height: 600px;
+    height: 500px;
     display: block;
   }
 .obsidian-branding .obsidian-logo {
   width: 204px;
+  background: #000;
   z-index: 1;
 }
 .obsidian-branding .obsidian-logo img {
@@ -423,14 +426,29 @@ body {
       </div>
     </div>
 
+    <div class="item desktop">
+      <img src="work/streamline-hype-desktop.jpg" />
+    </div>
+
     <div class="item medium">
       <img src="work/howe-sound-logo.jpg" />
     </div>
 
     <div class="item medium offset-right">
-      <img src="work/cargo.jpg" />
+      <div class="obsidian-branding">
+        <div class="obsidian-logo"><img src="work/obsidian-logo.png"></div>
+        <div class="obsidian-background">
+          <canvas id="canvas">
+      </canvas>
+        </div>
+      </div>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.js"></script>
+      <script type="text/javascript" src="work/obsidian-background.js"></script>
     </div>
 
+    <div class="item desktop">
+      <img src="work/streamline-hype-desktop.jpg" />
+    </div>
 
     <div class="row">
       <div class="item mobile-small">
@@ -444,15 +462,6 @@ body {
     </div>
 
     <div class="item desktop">
-      <div class="obsidian-branding">
-        <div class="obsidian-logo"><img src="work/obsidian-logo.png"></div>
-        <div class="obsidian-background">
-          <canvas id="canvas">
-      </canvas>
-        </div>
-      </div>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.js"></script>
-      <script type="text/javascript" src="work/obsidian-background.js"></script>
     </div>
 
   </div>

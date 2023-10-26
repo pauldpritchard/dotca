@@ -5,7 +5,7 @@ window.canvasOptions = {
     canvas: true,
     centered: true,
     width: null,
-    height: 600
+    height: 500
   };
 
 const {
