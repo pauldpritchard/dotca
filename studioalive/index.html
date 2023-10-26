@@ -343,7 +343,7 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
-  border: 1px solid #fff;
+  box-shadow: 0 0 0 1px #fff;
 }
 .obsidian-branding .obsidian-background {
   position: absolute;
@@ -367,6 +367,9 @@ body {
   display: block;
 }  
 @media screen and (orientation: portrait) {
+  .obsidian-branding {
+    box-shadow: 0 0 0 3px #fff;
+  }
   .obsidian-branding, .obsidian-branding #canvas {
     height: 600px;
   }
