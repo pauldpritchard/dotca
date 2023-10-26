@@ -336,7 +336,7 @@ body {
     .obsidian-branding {
   background: #000;
   width: 100%;
-  height: 500px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -354,7 +354,7 @@ body {
 .obsidian-branding #canvas {
     background: #000;
     width: 100%;
-    height: 500px;
+    height: 400px;
     display: block;
   }
 .obsidian-branding .obsidian-logo {
@@ -366,6 +366,14 @@ body {
   width: 100%;
   display: block;
 }  
+@media screen and (orientation: portrait) {
+  .obsidian-branding, .obsidian-branding #canvas {
+    height: 600px;
+  }
+  .obsidian-branding .obsidian-logo {
+    width: 400px;
+  }
+}
 
 
   
