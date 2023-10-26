@@ -315,6 +315,52 @@ body {
     }
 
 
+    /* ==== OBSIDIAN LOGO ==== */
+
+    .obsidian-branding {
+  background: #000;
+  position: absolute;
+  width: 100%;
+  height: 100%; 
+  transition: height 0.7s cubic-bezier(0.56, -0.01, 0.01, 1.01) 3s, background 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+.obsidian-branding .obsidian-background {
+  position: absolute;
+  background: #000;
+  display: block;
+  width: 100%;
+   opacity: 0;
+  transform: scale(2.4); 
+  transition: opacity 2s ease, transform 1.45s cubic-bezier(0.26, 0.54, 0.32, 1); 
+}
+.obsidian-branding #obsidian-background {
+    background: #000;
+    width: 100%;
+    height: 600px;
+    display: block;
+  }
+.obsidian-branding .obsidian-logo {
+  width: 174px;
+  z-index: 1;
+}
+.obsidian-branding .obsidian-logo .obsidian-white-bar {
+  width: 3px;
+  height: 38px;
+  opacity: 0;
+  background: #000;
+}
+.obsidian-branding .obsidian-logo img {
+  width: 100%;
+  display: block;
+  opacity: 0;
+}  
+
+
   
 </style>
 
@@ -344,6 +390,7 @@ body {
 
 
   <div class="grid">
+
     <div class="row">
       <div class="item mobile-small">
         <video autoplay loop defaultMuted playsinline muted poster="">
@@ -356,9 +403,11 @@ body {
         </video>
       </div>
     </div>
+
     <div class="item desktop">
       <img src="work/streamline-hype-desktop.jpg" />
     </div>
+
     <div class="row align-top">
       <div class="item mobile-large">
         <video autoplay loop defaultMuted playsinline muted poster="">
@@ -369,6 +418,18 @@ body {
         <img src="work/streamline-luxe-mobile.jpg" />
       </div>
     </div>
+
+    <div class="item desktop">
+      <script type="text/javascript" src="work/obsidian-background.js"></script>
+      <div class="obsidian-branding">
+        <div class="obsidian-logo"><div class="obsidian-white-bar"><img src="work/obsidian-logo.png"></div></div>
+        <div class="obsidian-background">
+          <canvas id="obsidian-background">
+          </canvas>
+        </div>
+  </div>
+    </div>
+
   </div>
 
   <div class="footer">
