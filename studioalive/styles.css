@@ -366,7 +366,7 @@ hr {
     display: block;
   }
 .obsidian-branding .obsidian-logo {
-  width: 204px;
+  width: 254px;
   background: #000;
   z-index: 1;
 }
@@ -386,7 +386,7 @@ hr {
     height: 600px;
   }
   .obsidian-branding .obsidian-logo {
-    width: 400px;
+    width: 450px;
   }
 }
 
