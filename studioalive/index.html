@@ -81,11 +81,11 @@ body {
 
 
 :root {
-    --shrink-to: 81dvh
+    --shrink-to: 72dvh
 }
 @media screen and (orientation: portrait) {
     :root {
-        --shrink-to: 85dvh
+        --shrink-to: 50dvh
     }
 }
 
@@ -296,8 +296,18 @@ body {
     .footer hr {
       margin-top: 0;
     }
-    .intro hr {
-      margin-bottom: 0;
+    .intro .text {
+      padding-bottom: 0;
+    }
+    .footer .text {
+      padding-top: 0;
+    }
+
+    .amoeba {
+      display: block;
+      position: relative;
+      width: 26px;
+      z-index: 5;
     }
 
 
@@ -323,7 +333,7 @@ body {
 
   <div class="intro">
     <div class="text">
-      we bring brands to life with innovative designs that convert.
+      we bring brands to life with innovative designs that convert<img src="amoeba.gif" class="amoeba" />
       <hr />
     </div>
   </div>
