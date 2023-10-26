@@ -1,3 +1,13 @@
+window.canvasOptions = {
+    autoClear: true,
+    autoCompensate: false,
+    autoPushPop: true,
+    canvas: true,
+    centered: true,
+    width: null,
+    height: 600
+  };
+
 const {
   E, LN10, LN2, LOG10E, LOG2E, PI, SQRT1_2, SQRT2,
   abs, acos, acosh, asin, asinh, atan, atan2, atanh, cbrt, ceil, clz32,
