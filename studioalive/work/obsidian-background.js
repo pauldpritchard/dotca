@@ -1,4 +1,3 @@
-
 const {
   E, LN10, LN2, LOG10E, LOG2E, PI, SQRT1_2, SQRT2,
   abs, acos, acosh, asin, asinh, atan, atan2, atanh, cbrt, ceil, clz32,
@@ -117,9 +116,9 @@ let _defaulCanvasOptions = {
   height: null };
 
 let _canvasOptions = {};
-let canvas = document.getElementById('obsidian-background');
+let canvas = document.getElementById('canvas');
 if (canvas === null) {
-  canvas = document.createElement('obsidian-background');
+  canvas = document.createElement('canvas');
   canvas.id = 'canvas';
   document.body.appendChild(canvas);
 }
@@ -181,26 +180,26 @@ function updateMouse(e, eventName) {// Modified from p5.js
 
 // let mouseIn = false, mouseDown = false, mouseMove = null, mousePos = { x: 0, y: 0 };
 // function updateMouse(e) {
-// 	if(e && !e.clientX) {
-// 		e = e.touches ? e.touches[0] : (e.changedTouches ? e.changedTouches[0] : e);
-// 	}
-// 	const { innerWidth: width, innerHeight: height } = window;
-// 	uniforms.mouse.value.set(e.clientX / width, 1 - e.clientY / height);
+//  if(e && !e.clientX) {
+//    e = e.touches ? e.touches[0] : (e.changedTouches ? e.changedTouches[0] : e);
+//  }
+//  const { innerWidth: width, innerHeight: height } = window;
+//  uniforms.mouse.value.set(e.clientX / width, 1 - e.clientY / height);
 // }
 
 // [
-// 	[ 'mouseenter', e => mouseIn = true ],
-// 	[ 'mouseleave', e => (mouseIn = false, mouseDown = false) ],
-// 	[ 'mousemove', e => (mouseIn = true, mouseMove = e.timeStamp) ],
-// 	[ 'mousedown', e => (mouseIn = true, mouseDown = true) ],
-// 	[ 'mouseup', e => mouseDown = false ],
-// 	[ 'touchstart', e => mouseIn = true ],
-// 	[ 'touchend', e => (mouseIn = false, mouseDown = false) ],
-// 	[ 'touchcancel', e => (mouseIn = false, mouseDown = false) ],
-// 	[ 'touchmove', e => (mouseIn = true, mouseMove = e.timeStamp) ]
+//  [ 'mouseenter', e => mouseIn = true ],
+//  [ 'mouseleave', e => (mouseIn = false, mouseDown = false) ],
+//  [ 'mousemove', e => (mouseIn = true, mouseMove = e.timeStamp) ],
+//  [ 'mousedown', e => (mouseIn = true, mouseDown = true) ],
+//  [ 'mouseup', e => mouseDown = false ],
+//  [ 'touchstart', e => mouseIn = true ],
+//  [ 'touchend', e => (mouseIn = false, mouseDown = false) ],
+//  [ 'touchcancel', e => (mouseIn = false, mouseDown = false) ],
+//  [ 'touchmove', e => (mouseIn = true, mouseMove = e.timeStamp) ]
 // ].forEach(([ eventName, cb ]) => document.body.addEventListener(eventName, e => {
-// 	updateMouse(e);
-// 	cb(e);
+//  updateMouse(e);
+//  cb(e);
 // }));
 
 canvas.addEventListener('mouseenter', e => {
@@ -744,11 +743,11 @@ function compositeOperation(type = compOper.default) {// https://developer.mozil
 }
 
 // const filters = [
-// 		[ 'url', [ 'url' ] ],
-// 		[ 'blur', [ 'length' ] ],
-// 		[ 'brightness', [ 'percentage' ] ],
-// 		[ 'contrast', [ 'percentage' ] ]
-// 	];
+//    [ 'url', [ 'url' ] ],
+//    [ 'blur', [ 'length' ] ],
+//    [ 'brightness', [ 'percentage' ] ],
+//    [ 'contrast', [ 'percentage' ] ]
+//  ];
 
 function filter(filterFuncs = 'none') {
   ctx.filter = filterFuncs || 'none';
@@ -861,7 +860,7 @@ function point(x = 0, y = 0, r = 0, g = 0, b = 0, a = 255, doPut_ = true) {
   // imgData.data[2] = b;
   // imgData.data[3] = a;
   // if(doPut_) {
-  // 	ctx.putImageData(imgData, x, y);
+  //  ctx.putImageData(imgData, x, y);
   // }
   // return imgData;
 }
@@ -959,18 +958,18 @@ function arcTo(x1 = 0, y1 = 0, x2 = 0, y2 = 0, radius = 50) {
 // function circle(x = 0, y = undefined, rX = 20, rY = undefined) {
 function circle(x, y, rX, rY) {var _x4, _y4, _rX;
   // if(typeof x !== 'number' && 'x' in x) {
-  // 	if(y !== undefined) {
-  // 		rX = y;
-  // 	}
-  // 	y = x.y;
-  // 	x = x.x;
+  //  if(y !== undefined) {
+  //    rX = y;
+  //  }
+  //  y = x.y;
+  //  x = x.x;
   // }
   // else if(y === undefined) {
-  // 	y = 0;
+  //  y = 0;
   // }
   // if(typeof rX !== 'number' && 'x' in rX) {
-  // 	rY = rX.y;
-  // 	rX = rX.x;
+  //  rY = rX.y;
+  //  rX = rX.x;
   // }
   if (isVectorish(x)) {
     [rX, rY] = [y, rX];
@@ -1083,7 +1082,7 @@ function loadImage(url) {
 }
 
 loadImage.alca = function (urlPart) {
-  return loadImage('https://web.archive.org/web/20221105164032/https://alca.tv/static/' + urlPart);
+  return loadImage('https://alca.tv/static/' + urlPart);
 };
 
 loadImage.alca.pen = function (urlPart) {
@@ -1107,7 +1106,7 @@ function loadVideo(url) {
 }
 
 loadVideo.alca = function (urlPart) {
-  return loadVideo('https://web.archive.org/web/20221105164032/https://alca.tv/static/' + urlPart);
+  return loadVideo('https://alca.tv/static/' + urlPart);
 };
 
 loadVideo.alca.pen = function (urlPart) {
@@ -1123,7 +1122,7 @@ function loadData(url) {
 }
 
 loadData.alca = function (urlPart) {
-  return loadData('https://web.archive.org/web/20221105164032/https://alca.tv/static/' + urlPart);
+  return loadData('https://alca.tv/static/' + urlPart);
 };
 
 function loadText(url) {
@@ -1132,7 +1131,7 @@ function loadText(url) {
 }
 
 loadText.alca = function (urlPart) {
-  return loadText('https://web.archive.org/web/20221105164032/https://alca.tv/static/' + urlPart);
+  return loadText('https://alca.tv/static/' + urlPart);
 };
 
 function loadJSON(url) {
@@ -1141,7 +1140,7 @@ function loadJSON(url) {
 }
 
 loadJSON.alca = function (urlPart) {
-  return loadJSON('https://web.archive.org/web/20221105164032/https://alca.tv/static/' + urlPart);
+  return loadJSON('https://alca.tv/static/' + urlPart);
 };
 
 function getImageData(img, ...args) {
@@ -1835,7 +1834,7 @@ class Vector {
   }
   rotate(a = 0) {
     // if(a === 0) {
-    // 	return this;
+    //  return this;
     // }
     // let newHeading = this.heading() + a;
     // let mag = this.mag();
@@ -2150,7 +2149,7 @@ function draw(e) {
   let yCount = 40;
   let iXCount = 1 / (xCount - 1);
   let iYCount = 1 / (yCount - 1);
-  let time = e * 0.00015;
+  let time = e * 0.0001;
   let timeStep = 0.015;
   let grad = ctx.createLinearGradient(-width, 0, width, height);
   let t = time % 1;
@@ -2184,3 +2183,4 @@ function draw(e) {
   //ctx.filter = 'blur(5px)';
   stroke(hsl(0, 0, 100, 1), 2);
 }
+

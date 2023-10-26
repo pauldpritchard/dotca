@@ -273,11 +273,19 @@ body {
   .desktop {
     width: 100%;
   }
+  .medium {
+    width: 100%;
+    margin-left: 0;
+  }
   .offset-up {
     padding-bottom: 0;
   }
   .offset-down {
     padding-top: 0;
+  }
+  .offset-right {
+    padding-right: 0;
+    align-self: flex-end;
   }
 }
 
@@ -341,7 +349,7 @@ body {
   display: block;
   width: 100%;
 }
-.obsidian-branding #obsidian-background {
+.obsidian-branding #canvas {
     background: #000;
     width: 100%;
     height: 600px;
@@ -439,7 +447,8 @@ body {
       <div class="obsidian-branding">
         <div class="obsidian-logo"><img src="work/obsidian-logo.png"></div>
         <div class="obsidian-background">
-          <canvas id="obsidian-background"></canvas>
+          <canvas id="canvas">
+      </canvas>
         </div>
       </div>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.js"></script>
